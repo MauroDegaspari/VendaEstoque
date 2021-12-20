@@ -90,9 +90,9 @@ public class ClienteDao {
             cliente.setEndereco(rs.getString("endereco"));
             cliente.setNumero(rs.getInt("numero"));
             cliente.setComplemento(rs.getString("complemento"));
-            cliente.setBairro(rs.getString("bairo"));
+            cliente.setBairro(rs.getString("bairro"));
             cliente.setCidade(rs.getString("Cidade"));
-            cliente.setUf(rs.getString("uf"));
+            cliente.setUf(rs.getString("estado"));
             
             lista.add(cliente);
             

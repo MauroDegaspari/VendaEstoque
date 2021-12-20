@@ -18,6 +18,9 @@
     <SyntheticProperty name="formSizePolicy" type="int" value="1"/>
     <SyntheticProperty name="generateCenter" type="boolean" value="false"/>
   </SyntheticProperties>
+  <Events>
+    <EventHandler event="windowActivated" listener="java.awt.event.WindowListener" parameters="java.awt.event.WindowEvent" handler="formWindowActivated"/>
+  </Events>
   <AuxValues>
     <AuxValue name="FormSettings_autoResourcing" type="java.lang.Integer" value="0"/>
     <AuxValue name="FormSettings_autoSetComponentName" type="java.lang.Boolean" value="false"/>
@@ -204,23 +207,23 @@
 
               <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
               <SubComponents>
-                <Component class="javax.swing.JTable" name="jTable1">
+                <Component class="javax.swing.JTable" name="ListaCliente">
                   <Properties>
                     <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
                       <Table columnCount="13" rowCount="0">
-                        <Column editable="true" title="C&#xf3;digo" type="java.lang.Object"/>
-                        <Column editable="true" title="Nome" type="java.lang.Object"/>
-                        <Column editable="true" title="RG" type="java.lang.Object"/>
-                        <Column editable="true" title="Email" type="java.lang.Object"/>
-                        <Column editable="true" title="Telefone" type="java.lang.Object"/>
-                        <Column editable="true" title="Celular" type="java.lang.Object"/>
-                        <Column editable="true" title="Cep" type="java.lang.Object"/>
-                        <Column editable="true" title="Endere&#xe7;o" type="java.lang.Object"/>
-                        <Column editable="true" title="N&#xb0;" type="java.lang.Object"/>
-                        <Column editable="true" title="Comp" type="java.lang.Object"/>
-                        <Column editable="true" title="Bairro" type="java.lang.Object"/>
-                        <Column editable="true" title="Cidade" type="java.lang.Object"/>
-                        <Column editable="true" title="UF" type="java.lang.Object"/>
+                        <Column editable="true" title="id" type="java.lang.Object"/>
+                        <Column editable="true" title="nome" type="java.lang.Object"/>
+                        <Column editable="true" title="rg" type="java.lang.Object"/>
+                        <Column editable="true" title="email" type="java.lang.Object"/>
+                        <Column editable="true" title="telefone" type="java.lang.Object"/>
+                        <Column editable="true" title="celular" type="java.lang.Object"/>
+                        <Column editable="true" title="cep" type="java.lang.Object"/>
+                        <Column editable="true" title="endere&#xe7;o" type="java.lang.Object"/>
+                        <Column editable="true" title="numero" type="java.lang.Object"/>
+                        <Column editable="true" title="comp" type="java.lang.Object"/>
+                        <Column editable="true" title="bairro" type="java.lang.Object"/>
+                        <Column editable="true" title="cidade" type="java.lang.Object"/>
+                        <Column editable="true" title="estado" type="java.lang.Object"/>
                       </Table>
                     </Property>
                     <Property name="columnModel" type="javax.swing.table.TableColumnModel" editor="org.netbeans.modules.form.editors2.TableColumnModelEditor">

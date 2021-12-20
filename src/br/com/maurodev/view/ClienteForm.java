@@ -6,6 +6,8 @@ package br.com.maurodev.view;
 
 import br.com.maurodev.dao.ClienteDao;
 import br.com.maurodev.model.ClienteModel;
+import java.util.List;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -13,9 +15,37 @@ import br.com.maurodev.model.ClienteModel;
  */
 public class ClienteForm extends javax.swing.JFrame {
 
-    /**
-     * Creates new form ClienteForm
-     */
+    //metodo lista tabela
+    public void listar(){
+        ClienteDao dao =  new ClienteDao();
+        
+    List<ClienteModel> lista = dao.ListarClientes();
+    
+    //criando o objeto para adicionar a lista
+    DefaultTableModel dados = (DefaultTableModel) ListaCliente.getModel();
+    
+    dados.setNumRows(0);
+   
+    for(ClienteModel c: lista){
+    dados.addRow(new Object[]{
+        c.getId(),
+        c.getNome(),
+        c.getRg(),
+        c.getCpf(),
+        c.getEmail(),
+        c.getTel(),
+        c.getCelular(),
+        c.getCep(),
+        c.getEndereco(),
+        c.getNumero(),
+        c.getComplemento(),
+        c.getBairro(),
+        c.getCidade(),
+        c.getUf()
+        });
+    }
+    
+    }
     public ClienteForm() {
         initComponents();
     }
@@ -38,7 +68,7 @@ public class ClienteForm extends javax.swing.JFrame {
         jLabel4 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        ListaCliente = new javax.swing.JTable();
         jPanel2 = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
         jTextField1 = new javax.swing.JTextField();
@@ -78,6 +108,11 @@ public class ClienteForm extends javax.swing.JFrame {
         jLabel16.setText("UF:");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowActivated(java.awt.event.WindowEvent evt) {
+                formWindowActivated(evt);
+            }
+        });
 
         jPanel1.setBackground(new java.awt.Color(0, 102, 255));
 
@@ -122,15 +157,15 @@ public class ClienteForm extends javax.swing.JFrame {
             }
         });
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        ListaCliente.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
             new String [] {
-                "Código", "Nome", "RG", "Email", "Telefone", "Celular", "Cep", "Endereço", "N°", "Comp", "Bairro", "Cidade", "UF"
+                "id", "nome", "rg", "email", "telefone", "celular", "cep", "endereço", "numero", "comp", "bairro", "cidade", "estado"
             }
         ));
-        jScrollPane1.setViewportView(jTable1);
+        jScrollPane1.setViewportView(ListaCliente);
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
@@ -650,6 +685,11 @@ public class ClienteForm extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtEnderecoActionPerformed
 
+    private void formWindowActivated(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowActivated
+        // TODO add your handling code here:
+        listar();
+    }//GEN-LAST:event_formWindowActivated
+
     /**
      * @param args the command line arguments
      */
@@ -686,6 +726,7 @@ public class ClienteForm extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTable ListaCliente;
     private javax.swing.JButton btnPesquisa;
     private javax.swing.JButton btnSalvar;
     private javax.swing.JComboBox<String> cbUF;
@@ -715,7 +756,6 @@ public class ClienteForm extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel3;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTabbedPane jTabbedPane1;
-    private javax.swing.JTable jTable1;
     private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField2;
     private javax.swing.JTextField txtBairro;
