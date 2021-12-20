@@ -8,7 +8,11 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import br.com.maurodev.model.ClienteModel;
+import java.util.ArrayList;
+import java.util.List;
 import javax.swing.JOptionPane;
+import java.sql.ResultSet;
+
 
 /**
  *
@@ -57,6 +61,52 @@ public class ClienteDao {
         } catch (SQLException e) {
             JOptionPane.showMessageDialog(null, "Deu Merda!! "+ e);
         }
+    }
+        //metodo listar todos os clientes
+    public List<ClienteModel> ListarClientes(){
+       
+        try {
+             //1 criar a listar
+        List<ClienteModel> lista = new ArrayList<>();
+        
+        // criar a consuta do banco!
+        String sql ="select * "
+                  + "from loja.tb_clientes ";
+        PreparedStatement stmt = con.prepareStatement(sql);
+        
+        ResultSet rs = stmt.executeQuery();
+        
+        while(rs.next()){
+            ClienteModel cliente = new ClienteModel();
+            
+            cliente.setId(rs.getInt("id"));
+            cliente.setNome(rs.getString("nome"));
+            cliente.setRg(rs.getString("rg"));
+            cliente.setCpf(rs.getString("cpf"));
+            cliente.setEmail(rs.getString("email"));
+            cliente.setTel(rs.getString("telefone"));
+            cliente.setCelular(rs.getString("Celular"));
+            cliente.setCep(rs.getString("cep"));
+            cliente.setEndereco(rs.getString("endereco"));
+            cliente.setNumero(rs.getInt("numero"));
+            cliente.setComplemento(rs.getString("complemento"));
+            cliente.setBairro(rs.getString("bairo"));
+            cliente.setCidade(rs.getString("Cidade"));
+            cliente.setUf(rs.getString("uf"));
+            
+            lista.add(cliente);
+            
+        }
+            return lista;
+       
+        } catch (Exception e) {
+              JOptionPane.showMessageDialog(null, "Erro ao carregar Lista "+ e);
+              return null;
+        }
+
+       
+        
+        
     }
     
     //metodoAlterar
