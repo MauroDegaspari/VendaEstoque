@@ -16,36 +16,37 @@ import javax.swing.table.DefaultTableModel;
 public class ClienteForm extends javax.swing.JFrame {
 
     //metodo lista tabela
-    public void listar(){
-        ClienteDao dao =  new ClienteDao();
-        
-    List<ClienteModel> lista = dao.ListarClientes();
-    
-    //criando o objeto para adicionar a lista
-    DefaultTableModel dados = (DefaultTableModel) ListaCliente.getModel();
-    
-    dados.setNumRows(0);
-   
-    for(ClienteModel c: lista){
-    dados.addRow(new Object[]{
-        c.getId(),
-        c.getNome(),
-        c.getRg(),
-        c.getCpf(),
-        c.getEmail(),
-        c.getTel(),
-        c.getCelular(),
-        c.getCep(),
-        c.getEndereco(),
-        c.getNumero(),
-        c.getComplemento(),
-        c.getBairro(),
-        c.getCidade(),
-        c.getUf()
-        });
+    public void listar() {
+        ClienteDao dao = new ClienteDao();
+
+        List<ClienteModel> lista = dao.ListarClientes();
+
+        //criando o objeto para adicionar a lista
+        DefaultTableModel dados = (DefaultTableModel) ListaCliente.getModel();
+
+        dados.setNumRows(0);
+
+        for (ClienteModel c : lista) {
+            dados.addRow(new Object[]{
+                c.getId(),
+                c.getNome(),
+                c.getRg(),
+                c.getCpf(),
+                c.getEmail(),
+                c.getTel(),
+                c.getCelular(),
+                c.getCep(),
+                c.getEndereco(),
+                c.getNumero(),
+                c.getComplemento(),
+                c.getBairro(),
+                c.getCidade(),
+                c.getUf()
+            });
+        }
+
     }
-    
-    }
+
     public ClienteForm() {
         initComponents();
     }
@@ -64,14 +65,14 @@ public class ClienteForm extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         jTabbedPane1 = new javax.swing.JTabbedPane();
         jPanel3 = new javax.swing.JPanel();
-        jTextField2 = new javax.swing.JTextField();
+        txtNome2 = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
+        btnPesquisaClientes = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         ListaCliente = new javax.swing.JTable();
         jPanel2 = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
+        txtCodigo = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
         txtNome = new javax.swing.JTextField();
         txtBairro = new javax.swing.JTextField();
@@ -99,8 +100,8 @@ public class ClienteForm extends javax.swing.JFrame {
         jLabel21 = new javax.swing.JLabel();
         txtComplemento = new javax.swing.JTextField();
         btnPesquisa = new javax.swing.JButton();
-        jButton5 = new javax.swing.JButton();
-        jButton4 = new javax.swing.JButton();
+        btnExcluir = new javax.swing.JButton();
+        btnEditar = new javax.swing.JButton();
         btnSalvar = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
 
@@ -139,21 +140,26 @@ public class ClienteForm extends javax.swing.JFrame {
 
         jPanel3.setBackground(new java.awt.Color(255, 255, 255));
 
-        jTextField2.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jTextField2.addActionListener(new java.awt.event.ActionListener() {
+        txtNome2.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        txtNome2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField2ActionPerformed(evt);
+                txtNome2ActionPerformed(evt);
+            }
+        });
+        txtNome2.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                txtNome2KeyPressed(evt);
             }
         });
 
         jLabel4.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel4.setText("Nome:");
 
-        jButton1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jButton1.setText("Pesquisar");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        btnPesquisaClientes.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        btnPesquisaClientes.setText("Pesquisar");
+        btnPesquisaClientes.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                btnPesquisaClientesActionPerformed(evt);
             }
         });
 
@@ -165,6 +171,11 @@ public class ClienteForm extends javax.swing.JFrame {
                 "id", "nome", "rg", "email", "telefone", "celular", "cep", "endereço", "numero", "comp", "bairro", "cidade", "estado"
             }
         ));
+        ListaCliente.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                ListaClienteMouseClicked(evt);
+            }
+        });
         jScrollPane1.setViewportView(ListaCliente);
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
@@ -177,9 +188,9 @@ public class ClienteForm extends javax.swing.JFrame {
                     .addGroup(jPanel3Layout.createSequentialGroup()
                         .addComponent(jLabel4)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 390, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(txtNome2, javax.swing.GroupLayout.PREFERRED_SIZE, 390, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
-                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(btnPesquisaClientes, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 903, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
@@ -189,11 +200,11 @@ public class ClienteForm extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel4)
-                    .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton1))
+                    .addComponent(txtNome2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnPesquisaClientes))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(111, Short.MAX_VALUE))
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(36, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("Todos Clientes", jPanel3);
@@ -203,10 +214,10 @@ public class ClienteForm extends javax.swing.JFrame {
         jLabel3.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel3.setText("Código:");
 
-        jTextField1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jTextField1.addActionListener(new java.awt.event.ActionListener() {
+        txtCodigo.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        txtCodigo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField1ActionPerformed(evt);
+                txtCodigoActionPerformed(evt);
             }
         });
 
@@ -392,7 +403,7 @@ public class ClienteForm extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(txtNome)
-                            .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(txtCodigo, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGap(25, 25, 25)
                         .addComponent(jLabel8)
@@ -460,7 +471,7 @@ public class ClienteForm extends javax.swing.JFrame {
                         .addGap(2, 2, 2)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel3)
-                            .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(txtCodigo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addComponent(btnPesquisa, javax.swing.GroupLayout.Alignment.TRAILING))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -505,19 +516,19 @@ public class ClienteForm extends javax.swing.JFrame {
 
         jTabbedPane1.addTab("Cadastra Cliente", jPanel2);
 
-        jButton5.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        jButton5.setText("EXCLUIR");
-        jButton5.addActionListener(new java.awt.event.ActionListener() {
+        btnExcluir.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        btnExcluir.setText("EXCLUIR");
+        btnExcluir.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton5ActionPerformed(evt);
+                btnExcluirActionPerformed(evt);
             }
         });
 
-        jButton4.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        jButton4.setText("EDITAR");
-        jButton4.addActionListener(new java.awt.event.ActionListener() {
+        btnEditar.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        btnEditar.setText("EDITAR");
+        btnEditar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton4ActionPerformed(evt);
+                btnEditarActionPerformed(evt);
             }
         });
 
@@ -552,13 +563,13 @@ public class ClienteForm extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addComponent(btnSalvar, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(29, 29, 29)
-                .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btnEditar, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btnExcluir, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(224, 224, 224))
         );
 
-        layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {btnSalvar, jButton2, jButton4, jButton5});
+        layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {btnEditar, btnExcluir, btnSalvar, jButton2});
 
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -569,64 +580,120 @@ public class ClienteForm extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jButton5)
-                        .addComponent(jButton4))
+                        .addComponent(btnExcluir)
+                        .addComponent(btnEditar))
                     .addComponent(btnSalvar)
                     .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(0, 33, Short.MAX_VALUE))
         );
 
-        layout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {btnSalvar, jButton2, jButton4, jButton5});
+        layout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {btnEditar, btnExcluir, btnSalvar, jButton2});
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton5ActionPerformed
+    private void btnExcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExcluirActionPerformed
+        // Botão excluir
+        ClienteModel cliente = new ClienteModel();
 
-    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+        cliente.setId(Integer.parseInt(txtCodigo.getText()));
+
+        ClienteDao dao = new ClienteDao();
+        dao.deletarCliente(cliente);
+    }//GEN-LAST:event_btnExcluirActionPerformed
+
+    private void btnEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditarActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton4ActionPerformed
+        ClienteModel cliente = new ClienteModel();
+
+        cliente.setNome(txtNome.getText());
+        cliente.setRg(txtRg.getText());
+        cliente.setCpf(txtCPF.getText());
+        cliente.setEmail(txtEmail.getText());
+        cliente.setTel(txtTelefone.getText());
+        cliente.setCelular(txtCelular.getText());
+        cliente.setCep(txtCEP.getText());
+        cliente.setEndereco(txtEndereco.getText());
+        cliente.setNumero(Integer.parseInt(txtNumero.getText()));
+        cliente.setComplemento(txtComplemento.getText());
+        cliente.setBairro(txtBairro.getText());
+        cliente.setCidade(txtCidade.getText());
+        cliente.setUf(cbUF.getSelectedItem().toString());
+
+        cliente.setId(Integer.parseInt(txtCodigo.getText()));
+
+        ClienteDao dao = new ClienteDao();
+        dao.alteraCliente(cliente);
+
+    }//GEN-LAST:event_btnEditarActionPerformed
 
     private void btnSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalvarActionPerformed
         //botão salvar
-        
-            ClienteModel cliente = new ClienteModel();
-            
-            cliente.setNome(txtNome.getText());
-            cliente.setRg(txtRg.getText());
-            cliente.setCpf(txtCPF.getText());
-            cliente.setEmail(txtEmail.getText());
-            cliente.setTel(txtTelefone.getText());
-            cliente.setCelular(txtCelular.getText());
-            cliente.setCep(txtCEP.getText());
-            cliente.setEndereco(txtEndereco.getText().trim());
-            cliente.setNumero(Integer.parseInt(txtNumero.getText()));
-            cliente.setComplemento(txtComplemento.getText());
-            cliente.setBairro(txtBairro.getText());
-            cliente.setCidade(txtCidade.getText());
-            cliente.setUf(cbUF.getSelectedItem().toString());
-                       
-            ClienteDao dao = new ClienteDao();
-            dao.cadastraCliente(cliente);
-                    
+
+        ClienteModel cliente = new ClienteModel();
+
+        cliente.setNome(txtNome.getText());
+        cliente.setRg(txtRg.getText());
+        cliente.setCpf(txtCPF.getText());
+        cliente.setEmail(txtEmail.getText());
+        cliente.setTel(txtTelefone.getText());
+        cliente.setCelular(txtCelular.getText());
+        cliente.setCep(txtCEP.getText());
+        cliente.setEndereco(txtEndereco.getText().trim());
+        cliente.setNumero(Integer.parseInt(txtNumero.getText()));
+        cliente.setComplemento(txtComplemento.getText());
+        cliente.setBairro(txtBairro.getText());
+        cliente.setCidade(txtCidade.getText());
+        cliente.setUf(cbUF.getSelectedItem().toString());
+
+        ClienteDao dao = new ClienteDao();
+        dao.cadastraCliente(cliente);
+
     }//GEN-LAST:event_btnSalvarActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton2ActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton1ActionPerformed
+    private void btnPesquisaClientesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPesquisaClientesActionPerformed
+        String nome = "%" + txtNome2.getText() + "%";
 
-    private void jTextField2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField2ActionPerformed
+        ClienteDao dao = new ClienteDao();
+
+        List<ClienteModel> lista = dao.pesquisaCliente(nome);
+
+        //criando o objeto para adicionar a lista
+        DefaultTableModel dados = (DefaultTableModel) ListaCliente.getModel();
+
+        dados.setNumRows(0);
+
+        for (ClienteModel c : lista) {
+            dados.addRow(new Object[]{
+                c.getId(),
+                c.getNome(),
+                c.getRg(),
+                c.getCpf(),
+                c.getEmail(),
+                c.getTel(),
+                c.getCelular(),
+                c.getCep(),
+                c.getEndereco(),
+                c.getNumero(),
+                c.getComplemento(),
+                c.getBairro(),
+                c.getCidade(),
+                c.getUf()
+            });
+        }
+
+    }//GEN-LAST:event_btnPesquisaClientesActionPerformed
+
+    private void txtNome2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNome2ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField2ActionPerformed
+    }//GEN-LAST:event_txtNome2ActionPerformed
 
     private void btnPesquisaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPesquisaActionPerformed
-        // TODO add your handling code here:
+
     }//GEN-LAST:event_btnPesquisaActionPerformed
 
     private void txtComplementoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtComplementoActionPerformed
@@ -677,9 +744,9 @@ public class ClienteForm extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtNomeActionPerformed
 
-    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
+    private void txtCodigoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCodigoActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField1ActionPerformed
+    }//GEN-LAST:event_txtCodigoActionPerformed
 
     private void txtEnderecoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtEnderecoActionPerformed
         // TODO add your handling code here:
@@ -689,6 +756,61 @@ public class ClienteForm extends javax.swing.JFrame {
         // TODO add your handling code here:
         listar();
     }//GEN-LAST:event_formWindowActivated
+
+    private void ListaClienteMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ListaClienteMouseClicked
+        // Pegar os dados:
+
+        //esse comdando manda para outra aba
+        jTabbedPane1.setSelectedIndex(1);
+        txtCodigo.setText(ListaCliente.getValueAt(ListaCliente.getSelectedRow(), 0).toString());
+        txtNome.setText(ListaCliente.getValueAt(ListaCliente.getSelectedRow(), 1).toString());
+        txtRg.setText(ListaCliente.getValueAt(ListaCliente.getSelectedRow(), 2).toString());
+        txtCPF.setText(ListaCliente.getValueAt(ListaCliente.getSelectedRow(), 3).toString());
+        txtEmail.setText(ListaCliente.getValueAt(ListaCliente.getSelectedRow(), 4).toString());
+        txtTelefone.setText(ListaCliente.getValueAt(ListaCliente.getSelectedRow(), 5).toString());
+        txtCelular.setText(ListaCliente.getValueAt(ListaCliente.getSelectedRow(), 6).toString());
+        txtCEP.setText(ListaCliente.getValueAt(ListaCliente.getSelectedRow(), 7).toString());
+        txtEndereco.setText(ListaCliente.getValueAt(ListaCliente.getSelectedRow(), 8).toString());
+        txtNumero.setText(ListaCliente.getValueAt(ListaCliente.getSelectedRow(), 9).toString());
+        txtComplemento.setText(ListaCliente.getValueAt(ListaCliente.getSelectedRow(), 10).toString());
+        txtBairro.setText(ListaCliente.getValueAt(ListaCliente.getSelectedRow(), 11).toString());
+        txtCidade.setText(ListaCliente.getValueAt(ListaCliente.getSelectedRow(), 12).toString());
+        cbUF.setSelectedItem(ListaCliente.getValueAt(ListaCliente.getSelectedRow(), 13).toString());
+    }//GEN-LAST:event_ListaClienteMouseClicked
+
+    private void txtNome2KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtNome2KeyPressed
+        String nome = "%" + txtNome2.getText() + "%";
+
+        ClienteDao dao = new ClienteDao();
+
+        List<ClienteModel> lista = dao.pesquisaCliente(nome);
+
+        //criando o objeto para adicionar a lista
+        DefaultTableModel dados = (DefaultTableModel) ListaCliente.getModel();
+
+        dados.setNumRows(0);
+
+        for (ClienteModel c : lista) {
+            dados.addRow(new Object[]{
+                c.getId(),
+                c.getNome(),
+                c.getRg(),
+                c.getCpf(),
+                c.getEmail(),
+                c.getTel(),
+                c.getCelular(),
+                c.getCep(),
+                c.getEndereco(),
+                c.getNumero(),
+                c.getComplemento(),
+                c.getBairro(),
+                c.getCidade(),
+                c.getUf()
+            });
+        }
+
+
+    }//GEN-LAST:event_txtNome2KeyPressed
 
     /**
      * @param args the command line arguments
@@ -727,13 +849,13 @@ public class ClienteForm extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTable ListaCliente;
+    private javax.swing.JButton btnEditar;
+    private javax.swing.JButton btnExcluir;
     private javax.swing.JButton btnPesquisa;
+    private javax.swing.JButton btnPesquisaClientes;
     private javax.swing.JButton btnSalvar;
     private javax.swing.JComboBox<String> cbUF;
-    private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton4;
-    private javax.swing.JButton jButton5;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -756,17 +878,17 @@ public class ClienteForm extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel3;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTabbedPane jTabbedPane1;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
     private javax.swing.JTextField txtBairro;
     private javax.swing.JFormattedTextField txtCEP;
     private javax.swing.JFormattedTextField txtCPF;
     private javax.swing.JFormattedTextField txtCelular;
     private javax.swing.JTextField txtCidade;
+    private javax.swing.JTextField txtCodigo;
     private javax.swing.JTextField txtComplemento;
     private javax.swing.JTextField txtEmail;
     private javax.swing.JTextField txtEndereco;
     private javax.swing.JTextField txtNome;
+    private javax.swing.JTextField txtNome2;
     private javax.swing.JTextField txtNumero;
     private javax.swing.JFormattedTextField txtRg;
     private javax.swing.JFormattedTextField txtTelefone;

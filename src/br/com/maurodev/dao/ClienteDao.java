@@ -110,13 +110,110 @@ public class ClienteDao {
     }
     
     //metodoAlterar
-    public void AlteraCliente(){
+    public void alteraCliente(ClienteModel cliente){
+    try {
+            // criar o comando sql
+          String sql = "update loja.tb_clientes "
+                     + "set nome=?,rg=?,cpf=?,email=?,telefone=?,celular=?,cep=?,endereco=?,numero=?,complemento=?,bairro=?,cidade=?,estado=? "
+                     + "where id = ?";
+                     ;
+         
+             //conectar o banco de dados
+             PreparedStatement stmt = con.prepareStatement(sql);
+             stmt.setString(1,cliente.getNome());
+             stmt.setString(2,cliente.getRg());
+             stmt.setString(3,cliente.getCpf());
+             stmt.setString(4,cliente.getEmail());
+             stmt.setString(5,cliente.getTel());
+             stmt.setString(6,cliente.getCelular());
+             stmt.setString(7,cliente.getCep());
+             stmt.setString(8,cliente.getEndereco());
+             stmt.setInt(9,cliente.getNumero());
+             stmt.setString(10,cliente.getComplemento());
+             stmt.setString(11,cliente.getBairro());
+             stmt.setString(12,cliente.getCidade());
+             stmt.setString(13,cliente.getEstado());
+             stmt.setInt(14,cliente.getId());
+            
+             
+             // executa o comando sql
+             stmt.execute();
+             stmt.close();
+             
+             JOptionPane.showMessageDialog(null, "Alterado com sucesso!!");
+        } catch (SQLException e) {
+            JOptionPane.showMessageDialog(null, "Deu Merda na alteração!! "+ e);
+        }
         
     }
    
     
     //metodoDeletar
-    public void deletarCliente(){
-        
+    public void deletarCliente(ClienteModel cliente){
+       try {
+            // criar o comando sql
+          String sql = "delete from loja.tb_clientes "
+                     + "where id = ?";
+         
+             //conectar o banco de dados
+             PreparedStatement stmt = con.prepareStatement(sql);
+             stmt.setInt(1,cliente.getId());
+            
+            
+             
+             // executa o comando sql
+             stmt.execute();
+             stmt.close();
+             
+             JOptionPane.showMessageDialog(null, "Excluido com sucesso!!");
+        } catch (SQLException e) {
+            JOptionPane.showMessageDialog(null, "Deu Merda na exlusão!! "+ e);
+        } 
     }
+    
+    
+        public List<ClienteModel> pesquisaCliente(String nome){
+        try {
+             //1 criar a listar
+        List<ClienteModel> lista = new ArrayList<>();
+        
+        // criar a consuta do banco!
+        String sql ="select * "
+                  + "from loja.tb_clientes "
+                  + "where nome like ?";    
+        
+        PreparedStatement stmt = con.prepareStatement(sql);
+        
+        stmt.setString(1, nome);
+        
+        ResultSet rs = stmt.executeQuery();
+        
+        while(rs.next()){
+            ClienteModel cliente = new ClienteModel();
+            
+            cliente.setId(rs.getInt("id"));
+            cliente.setNome(rs.getString("nome"));
+            cliente.setRg(rs.getString("rg"));
+            cliente.setCpf(rs.getString("cpf"));
+            cliente.setEmail(rs.getString("email"));
+            cliente.setTel(rs.getString("telefone"));
+            cliente.setCelular(rs.getString("Celular"));
+            cliente.setCep(rs.getString("cep"));
+            cliente.setEndereco(rs.getString("endereco"));
+            cliente.setNumero(rs.getInt("numero"));
+            cliente.setComplemento(rs.getString("complemento"));
+            cliente.setBairro(rs.getString("bairro"));
+            cliente.setCidade(rs.getString("Cidade"));
+            cliente.setUf(rs.getString("estado"));
+            
+            lista.add(cliente);
+            
+        }
+            return lista;
+       
+        } catch (Exception e) {
+              JOptionPane.showMessageDialog(null, "Erro ao carregar Lista "+ e);
+              return null;
+        }
+        }
 }
