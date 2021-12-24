@@ -704,9 +704,34 @@ public class ClienteForm extends javax.swing.JFrame {
     private void txtNome2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNome2ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtNome2ActionPerformed
-
+                 //Botão de pesquisar cliente por nome.
     private void btnPesquisaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPesquisaActionPerformed
-
+           //1. receber nome digitado pelo usuario
+           String nome = txtNome.getText();
+           
+           //Estaciar Dao e Model para consulta e metodos
+           ClienteModel cliente = new ClienteModel();
+           ClienteDao dao = new ClienteDao();
+           
+           cliente = dao.consultaPorNome(nome);
+           
+            //exibir a consulta nos devidos compos
+           txtCodigo.setText(String.valueOf(cliente.getId()));
+           txtRg.setText(cliente.getRg());
+           txtCPF.setText(cliente.getCpf());
+           txtCelular.setText(cliente.getCelular());
+           txtCEP.setText(cliente.getCep());
+           txtTelefone.setText(cliente.getTel());
+           txtBairro.setText(cliente.getBairro());
+           txtCidade.setText(cliente.getCidade());
+           txtComplemento.setText(cliente.getComplemento());
+           txtNumero.setText(String.valueOf(cliente.getNumero()));
+           cbUF.setSelectedItem(cliente.getUf());
+           txtEmail.setText(cliente.getEmail());
+           txtEndereco.setText(cliente.getEndereco());
+           
+           
+          
     }//GEN-LAST:event_btnPesquisaActionPerformed
 
     private void txtComplementoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtComplementoActionPerformed

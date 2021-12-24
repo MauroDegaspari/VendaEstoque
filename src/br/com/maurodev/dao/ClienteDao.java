@@ -177,7 +177,7 @@ public class ClienteDao {
              //1 criar a listar
         List<ClienteModel> lista = new ArrayList<>();
         
-        // criar a consuta do banco!
+        // 2 criar a consuta do banco!
         String sql ="select * "
                   + "from loja.tb_clientes "
                   + "where nome like ?";    
@@ -215,5 +215,53 @@ public class ClienteDao {
               JOptionPane.showMessageDialog(null, "Erro ao carregar Lista "+ e);
               return null;
         }
+        }
+        // metodo consulta cliente por nome
+        public ClienteModel consultaPorNome(String nome){
+            //1 passo consulta no banco
+            try {
+                  String sql = "select * "
+                       + "from loja.tb_clientes "
+                       + " where nome = ?";
+            
+           PreparedStatement stmt = con.prepareStatement(sql);
+        
+            stmt.setString(1, nome);
+            
+             ResultSet rs = stmt.executeQuery();
+                      
+            ClienteModel cliente = new ClienteModel();
+            
+             if(rs.next()){
+         
+            
+            cliente.setId(rs.getInt("id"));
+            cliente.setNome(rs.getString("nome"));
+            cliente.setRg(rs.getString("rg"));
+            cliente.setCpf(rs.getString("cpf"));
+            cliente.setEmail(rs.getString("email"));
+            cliente.setTel(rs.getString("telefone"));
+            cliente.setCelular(rs.getString("Celular"));
+            cliente.setCep(rs.getString("cep"));
+            cliente.setEndereco(rs.getString("endereco"));
+            cliente.setNumero(rs.getInt("numero"));
+            cliente.setComplemento(rs.getString("complemento"));
+            cliente.setBairro(rs.getString("bairro"));
+            cliente.setCidade(rs.getString("Cidade"));
+            cliente.setUf(rs.getString("estado"));
+                                   
+        }
+            return cliente;
+            
+            } catch (Exception e) {
+                JOptionPane.showMessageDialog(null,"cliente não encontrado");
+                return null;
+                        
+            }
+  
+          
+        
+        
+        
         }
 }
