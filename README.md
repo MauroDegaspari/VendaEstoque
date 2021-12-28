@@ -20,7 +20,7 @@
 
 # Tecnologias utilizadas
 ## Back end
-:computer: ECLIPSE Java EE <br>
+:computer: NEtBeans IDE 12.6 <br>
 🐜: Ant<br>
 :bank: SQL - Banco Postgres <br>
 
