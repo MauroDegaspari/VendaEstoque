@@ -211,20 +211,21 @@
                 <Component class="javax.swing.JTable" name="ListaCliente">
                   <Properties>
                     <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
-                      <Table columnCount="13" rowCount="0">
+                      <Table columnCount="14" rowCount="0">
                         <Column editable="true" title="id" type="java.lang.Object"/>
-                        <Column editable="true" title="nome" type="java.lang.Object"/>
+                        <Column editable="false" title="nome" type="java.lang.Object"/>
                         <Column editable="true" title="rg" type="java.lang.Object"/>
+                        <Column editable="true" title="cpf" type="java.lang.Object"/>
                         <Column editable="true" title="email" type="java.lang.Object"/>
-                        <Column editable="true" title="telefone" type="java.lang.Object"/>
+                        <Column editable="true" title="fixo" type="java.lang.Object"/>
                         <Column editable="true" title="celular" type="java.lang.Object"/>
                         <Column editable="true" title="cep" type="java.lang.Object"/>
-                        <Column editable="true" title="endere&#xe7;o" type="java.lang.Object"/>
+                        <Column editable="true" title="rua" type="java.lang.Object"/>
                         <Column editable="true" title="numero" type="java.lang.Object"/>
-                        <Column editable="true" title="comp" type="java.lang.Object"/>
+                        <Column editable="true" title="complemento" type="java.lang.Object"/>
                         <Column editable="true" title="bairro" type="java.lang.Object"/>
                         <Column editable="true" title="cidade" type="java.lang.Object"/>
-                        <Column editable="true" title="estado" type="java.lang.Object"/>
+                        <Column editable="true" title="uf" type="java.lang.Object"/>
                       </Table>
                     </Property>
                     <Property name="columnModel" type="javax.swing.table.TableColumnModel" editor="org.netbeans.modules.form.editors2.TableColumnModelEditor">
@@ -595,6 +596,7 @@
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtCEPActionPerformed"/>
+                <EventHandler event="keyPressed" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="txtCEPKeyPressed"/>
               </Events>
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel11">
@@ -675,14 +677,34 @@
                   <Font name="Tahoma" size="14" style="0"/>
                 </Property>
                 <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-                  <StringArray count="7">
-                    <StringItem index="0" value="PE"/>
-                    <StringItem index="1" value="SP"/>
-                    <StringItem index="2" value="TO"/>
-                    <StringItem index="3" value="AL"/>
-                    <StringItem index="4" value="RR"/>
-                    <StringItem index="5" value="RJ"/>
-                    <StringItem index="6" value="SC"/>
+                  <StringArray count="27">
+                    <StringItem index="0" value="AC"/>
+                    <StringItem index="1" value="AL"/>
+                    <StringItem index="2" value="AP"/>
+                    <StringItem index="3" value="AM"/>
+                    <StringItem index="4" value="BA"/>
+                    <StringItem index="5" value="CE"/>
+                    <StringItem index="6" value="DF"/>
+                    <StringItem index="7" value="ES"/>
+                    <StringItem index="8" value="GO"/>
+                    <StringItem index="9" value="MA"/>
+                    <StringItem index="10" value="MT"/>
+                    <StringItem index="11" value="MS"/>
+                    <StringItem index="12" value="MG"/>
+                    <StringItem index="13" value="PA"/>
+                    <StringItem index="14" value="PB"/>
+                    <StringItem index="15" value="PR"/>
+                    <StringItem index="16" value="PE"/>
+                    <StringItem index="17" value="PI"/>
+                    <StringItem index="18" value="RJ"/>
+                    <StringItem index="19" value="RN"/>
+                    <StringItem index="20" value="RS"/>
+                    <StringItem index="21" value="RO"/>
+                    <StringItem index="22" value="RR"/>
+                    <StringItem index="23" value="SC"/>
+                    <StringItem index="24" value="SP"/>
+                    <StringItem index="25" value="SE"/>
+                    <StringItem index="26" value="TO"/>
                   </StringArray>
                 </Property>
               </Properties>

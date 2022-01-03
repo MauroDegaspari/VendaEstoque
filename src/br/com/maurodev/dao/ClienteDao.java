@@ -8,6 +8,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import br.com.maurodev.model.ClienteModel;
+import br.com.maurodev.webservices.WebServiceCep;
 import java.util.ArrayList;
 import java.util.List;
 import javax.swing.JOptionPane;
@@ -204,7 +205,8 @@ public class ClienteDao {
             cliente.setComplemento(rs.getString("complemento"));
             cliente.setBairro(rs.getString("bairro"));
             cliente.setCidade(rs.getString("Cidade"));
-            cliente.setUf(rs.getString("estado"));
+            
+            cliente.setUf(rs.getString("uf"));
             
             lista.add(cliente);
             
@@ -257,11 +259,33 @@ public class ClienteDao {
                 JOptionPane.showMessageDialog(null,"cliente não encontrado");
                 return null;
                         
-            }
-  
-          
-        
-        
+            }      
         
         }
+        
+        
+        //consulta cep
+        
+         public ClienteModel buscaCep(String cep) {
+       
+             WebServiceCep webServiceCep = WebServiceCep.searchCep(cep);
+       
+
+        ClienteModel obj = new ClienteModel();
+
+        if (webServiceCep.wasSuccessful()) {
+            obj.setEndereco(webServiceCep.getLogradouroFull());
+            obj.setCidade(webServiceCep.getCidade());
+            obj.setBairro(webServiceCep.getBairro());
+            obj.setUf(webServiceCep.getUf());
+            return obj;
+        } else {
+            JOptionPane.showMessageDialog(null, "Erro numero: " + webServiceCep.getResulCode());
+            JOptionPane.showMessageDialog(null, "Descrição do erro: " + webServiceCep.getResultText());
+            return null;
+        }
+
+    }
+	
+
 }

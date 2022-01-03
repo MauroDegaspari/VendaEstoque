@@ -7,6 +7,7 @@ package br.com.maurodev.view;
 import br.com.maurodev.dao.ClienteDao;
 import br.com.maurodev.model.ClienteModel;
 import br.com.maurodev.utilities.Utilitarios;
+import java.awt.event.KeyEvent;
 import java.util.List;
 import javax.swing.table.DefaultTableModel;
 
@@ -169,9 +170,17 @@ public class ClienteForm extends javax.swing.JFrame {
 
             },
             new String [] {
-                "id", "nome", "rg", "email", "telefone", "celular", "cep", "endereço", "numero", "comp", "bairro", "cidade", "estado"
+                "id", "nome", "rg", "cpf", "email", "fixo", "celular", "cep", "rua", "numero", "complemento", "bairro", "cidade", "uf"
             }
-        ));
+        ) {
+            boolean[] canEdit = new boolean [] {
+                true, false, true, true, true, true, true, true, true, true, true, true, true, true
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
         ListaCliente.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 ListaClienteMouseClicked(evt);
@@ -284,6 +293,11 @@ public class ClienteForm extends javax.swing.JFrame {
                 txtCEPActionPerformed(evt);
             }
         });
+        txtCEP.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                txtCEPKeyPressed(evt);
+            }
+        });
 
         jLabel11.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel11.setText("CEP:");
@@ -326,7 +340,7 @@ public class ClienteForm extends javax.swing.JFrame {
         jLabel15.setText("Cidade:");
 
         cbUF.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        cbUF.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "PE", "SP", "TO", "AL", "RR", "RJ", "SC" }));
+        cbUF.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "AC", "AL", "AP", "AM", "BA", "CE", "DF", "ES", "GO", "MA", "MT", "MS", "MG", "PA", "PB", "PR", "PE", "PI", "RJ", "RN", "RS", "RO", "RR", "SC", "SP", "SE", "TO" }));
         cbUF.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 cbUFActionPerformed(evt);
@@ -850,6 +864,22 @@ public class ClienteForm extends javax.swing.JFrame {
 
     }//GEN-LAST:event_txtNome2KeyPressed
 
+    private void txtCEPKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtCEPKeyPressed
+        
+	//Programacao do keypress
+	if (evt.getKeyCode() == KeyEvent.VK_ENTER) { 
+         ClienteModel obj =  new ClienteModel();
+         ClienteDao dao = new ClienteDao();
+         obj = dao.buscaCep(txtCEP.getText());
+         
+         txtEndereco.setText(obj.getEndereco());
+         txtBairro.setText(obj.getBairro());
+         txtCidade.setText(obj.getCidade());
+         cbUF.setSelectedItem(obj.getUf());               
+         System.out.println(obj.getUf());
+         
+    }//GEN-LAST:event_txtCEPKeyPressed
+    }
     /**
      * @param args the command line arguments
      */
