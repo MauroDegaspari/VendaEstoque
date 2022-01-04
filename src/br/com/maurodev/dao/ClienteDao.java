@@ -204,8 +204,7 @@ public class ClienteDao {
             cliente.setNumero(rs.getInt("numero"));
             cliente.setComplemento(rs.getString("complemento"));
             cliente.setBairro(rs.getString("bairro"));
-            cliente.setCidade(rs.getString("Cidade"));
-            
+            cliente.setCidade(rs.getString("Cidade"));            
             cliente.setUf(rs.getString("uf"));
             
             lista.add(cliente);
