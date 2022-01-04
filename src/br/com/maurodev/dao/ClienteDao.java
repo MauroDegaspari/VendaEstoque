@@ -60,7 +60,7 @@ public class ClienteDao {
              
              JOptionPane.showMessageDialog(null, "Cadastrado!!");
         } catch (SQLException e) {
-            JOptionPane.showMessageDialog(null, "Deu Merda!! "+ e);
+            JOptionPane.showMessageDialog(null, "ORA - Erro no sistema!! "+ e);
         }
     }
         //metodo listar todos os clientes

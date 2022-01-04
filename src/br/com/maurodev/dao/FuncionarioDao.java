@@ -7,7 +7,6 @@ package br.com.maurodev.dao;
 import br.com.maurodev.jdbc.ConnectionFactory;
 import br.com.maurodev.model.FuncionarioModel;
 import br.com.maurodev.webservices.WebServiceCep;
-import com.sun.jdi.connect.spi.Connection;
 import javax.swing.JOptionPane;
 
 /**
@@ -16,11 +15,11 @@ import javax.swing.JOptionPane;
  */
 public class FuncionarioDao {
    
-    private Connection con; 
+    private java.sql.Connection con;
     
     //construtor
     public FuncionarioDao(){
-    this.con = (Connection) new ConnectionFactory().getConnetion();
+    this.con = new ConnectionFactory().getConnetion();
     }
     
     //metodo cadastro Funcionario
