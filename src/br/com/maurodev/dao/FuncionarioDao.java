@@ -7,6 +7,7 @@ package br.com.maurodev.dao;
 import br.com.maurodev.jdbc.ConnectionFactory;
 import br.com.maurodev.model.FuncionarioModel;
 import br.com.maurodev.webservices.WebServiceCep;
+import java.sql.PreparedStatement;
 import javax.swing.JOptionPane;
 
 /**
@@ -26,6 +27,18 @@ public class FuncionarioDao {
     public void cadastraFuncionario(){
     
     }
+    
+     // metodo achar Funcionario LOGIN
+    public FuncionarioModel loginFuncionario(String cpf, String senha){
+                        
+         try {
+        
+         
+         } catch (Exception e) {
+       
+        }
+        return null;
+     }
     
        //consulta cep
         

@@ -70,7 +70,7 @@ public class ClienteDao {
              //1 criar a listar
         List<ClienteModel> lista = new ArrayList<>();
         
-        // criar a consuta do banco!
+        // criar a consulta do banco!
         String sql ="select * "
                   + "from loja.tb_clientes ";
         PreparedStatement stmt = con.prepareStatement(sql);
@@ -219,6 +219,7 @@ public class ClienteDao {
         }
         // metodo consulta cliente por nome
         public ClienteModel consultaPorNome(String nome){
+           
             //1 passo consulta no banco
             try {
                   String sql = "select * "
