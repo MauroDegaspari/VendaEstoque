@@ -24,8 +24,43 @@ public class FuncionarioDao {
     }
     
     //metodo cadastro Funcionario
-    public void cadastraFuncionario(){
+    public void cadastraFuncionario(FuncionarioModel funcionario){
     
+        try {
+            // SQL para inserir dado em banco
+            String sql ="INSERT INTO loja.tb_funcionarios(nome,rg,cpf,email,telefone,celular,cep,endereco,numero,complemento,bairro,cidade,estado,nivel_acesso,cargo,senha) "
+                      + "VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
+            
+            //conectar o banco de dados
+             PreparedStatement stmt = con.prepareStatement(sql);
+             stmt.setString(1,funcionario.getNome());
+             stmt.setString(2,funcionario.getRg());
+             stmt.setString(3,funcionario.getCpf());
+             stmt.setString(4,funcionario.getEmail());
+             stmt.setString(5,funcionario.getTel());
+             stmt.setString(6,funcionario.getCelular());
+             stmt.setString(7,funcionario.getCep());
+             stmt.setString(8,funcionario.getEndereco());
+             stmt.setInt(9,funcionario.getNumero());
+             stmt.setString(10,funcionario.getComplemento());
+             stmt.setString(11,funcionario.getBairro());
+             stmt.setString(12,funcionario.getCidade());
+             stmt.setString(13,funcionario.getEstado());
+             stmt.setString(14,funcionario.getNivel());
+             stmt.setString(14,funcionario.getCargo());
+             stmt.setString(14,funcionario.getSenha());
+             
+             
+              // executa o comando sql
+             stmt.execute();
+             stmt.close();
+             
+             JOptionPane.showMessageDialog(null, " Funcionário Cadastrado!!");
+             
+        } catch (Exception e) {
+           
+            JOptionPane.showMessageDialog(null, "ORA - Erro de Acesso ao banco, consulte o Desenvolvedo");
+        }
     }
     
      // metodo achar Funcionario LOGIN

@@ -6,6 +6,7 @@ package br.com.maurodev.view;
 
 import br.com.maurodev.dao.FuncionarioDao;
 import br.com.maurodev.model.FuncionarioModel;
+import br.com.maurodev.utilities.Utilitarios;
 import java.awt.event.KeyEvent;
 
 /**
@@ -67,8 +68,12 @@ public class FuncionarioForm extends javax.swing.JFrame {
         txtCargo = new javax.swing.JTextField();
         jLabel7 = new javax.swing.JLabel();
         jLabel14 = new javax.swing.JLabel();
-        txtPass = new javax.swing.JPasswordField();
+        txtSenha = new javax.swing.JPasswordField();
         jSeparator1 = new javax.swing.JSeparator();
+        btnExcluir = new javax.swing.JButton();
+        btnEditar = new javax.swing.JButton();
+        btnSalvar = new javax.swing.JButton();
+        btnNovoFuncionario = new javax.swing.JButton();
 
         jPasswordField1.setText("jPasswordField1");
 
@@ -87,7 +92,7 @@ public class FuncionarioForm extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 433, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(469, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -97,7 +102,7 @@ public class FuncionarioForm extends javax.swing.JFrame {
                 .addContainerGap(28, Short.MAX_VALUE))
         );
 
-        JPCadastro.setBackground(new java.awt.Color(255, 255, 255));
+        JPCadastro.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
         jLabel3.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel3.setText("ID:");
@@ -271,7 +276,6 @@ public class FuncionarioForm extends javax.swing.JFrame {
             }
         });
 
-        txtNivel.setEditable(false);
         txtNivel.setBackground(new java.awt.Color(255, 255, 255));
         txtNivel.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         txtNivel.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
@@ -284,7 +288,6 @@ public class FuncionarioForm extends javax.swing.JFrame {
         jLabel4.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel4.setText("Nivel:");
 
-        txtCargo.setEditable(false);
         txtCargo.setBackground(new java.awt.Color(255, 255, 255));
         txtCargo.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         txtCargo.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
@@ -300,9 +303,8 @@ public class FuncionarioForm extends javax.swing.JFrame {
         jLabel14.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel14.setText("Senha:");
 
-        txtPass.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        txtPass.setText("jPasswordField2");
-        txtPass.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
+        txtSenha.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        txtSenha.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
 
         javax.swing.GroupLayout JPCadastroLayout = new javax.swing.GroupLayout(JPCadastro);
         JPCadastro.setLayout(JPCadastroLayout);
@@ -321,7 +323,7 @@ public class FuncionarioForm extends javax.swing.JFrame {
                         .addGroup(JPCadastroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(JPCadastroLayout.createSequentialGroup()
                                 .addComponent(txtEndereco, javax.swing.GroupLayout.PREFERRED_SIZE, 164, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 65, Short.MAX_VALUE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(jLabel13)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(txtNumero, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -392,7 +394,7 @@ public class FuncionarioForm extends javax.swing.JFrame {
                         .addGap(18, 18, 18)
                         .addComponent(jLabel14)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(txtPass, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(txtSenha, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(JPCadastroLayout.createSequentialGroup()
                         .addGap(95, 95, 95)
                         .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 659, javax.swing.GroupLayout.PREFERRED_SIZE)))
@@ -410,7 +412,7 @@ public class FuncionarioForm extends javax.swing.JFrame {
                     .addComponent(jLabel3)
                     .addComponent(txtCodigo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel14)
-                    .addComponent(txtPass, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtSenha, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(13, 13, 13)
@@ -454,23 +456,71 @@ public class FuncionarioForm extends javax.swing.JFrame {
                 .addContainerGap(47, Short.MAX_VALUE))
         );
 
+        btnExcluir.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        btnExcluir.setText("EXCLUIR");
+        btnExcluir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnExcluirActionPerformed(evt);
+            }
+        });
+
+        btnEditar.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        btnEditar.setText("EDITAR");
+        btnEditar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEditarActionPerformed(evt);
+            }
+        });
+
+        btnSalvar.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        btnSalvar.setText("SALVAR");
+        btnSalvar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSalvarActionPerformed(evt);
+            }
+        });
+
+        btnNovoFuncionario.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        btnNovoFuncionario.setText("+NOVO");
+        btnNovoFuncionario.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnNovoFuncionarioActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(67, 67, 67)
+                .addComponent(JPCadastro, javax.swing.GroupLayout.PREFERRED_SIZE, 792, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(JPCadastro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(20, 20, 20))
+                .addComponent(btnNovoFuncionario, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(btnSalvar, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(29, 29, 29)
+                .addComponent(btnEditar, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(btnExcluir, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(168, 168, 168))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(56, 56, 56)
+                .addGap(18, 18, 18)
                 .addComponent(JPCadastro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 125, Short.MAX_VALUE))
+                .addGap(30, 30, 30)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(btnNovoFuncionario, javax.swing.GroupLayout.DEFAULT_SIZE, 53, Short.MAX_VALUE)
+                    .addComponent(btnSalvar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnEditar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnExcluir, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(0, 80, Short.MAX_VALUE))
         );
 
         pack();
@@ -556,6 +606,51 @@ public class FuncionarioForm extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtCargoActionPerformed
 
+    private void btnExcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExcluirActionPerformed
+        // Botão excluir
+       
+    }//GEN-LAST:event_btnExcluirActionPerformed
+
+    private void btnEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditarActionPerformed
+        // TODO add your handling code here:
+        
+
+    }//GEN-LAST:event_btnEditarActionPerformed
+
+    private void btnSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalvarActionPerformed
+        //botão salvar
+
+        FuncionarioModel funcionario = new FuncionarioModel();
+
+        funcionario.setNome(txtNome.getText());
+        funcionario.setRg(txtRg.getText());
+        funcionario.setCpf(txtCPF.getText());
+        funcionario.setEmail(txtEmail.getText());
+        funcionario.setTel(txtTelefone.getText());
+        funcionario.setCelular(txtCelular.getText());
+        funcionario.setCep(txtCEP.getText());
+        funcionario.setEndereco(txtEndereco.getText().trim());
+        funcionario.setNumero(Integer.parseInt(txtNumero.getText()));
+        funcionario.setComplemento(txtComplemento.getText());
+        funcionario.setBairro(txtBairro.getText());
+        funcionario.setCidade(txtCidade.getText());
+        funcionario.setUf(cbUF.getSelectedItem().toString());
+        funcionario.setNivel(txtNivel.getText());
+        funcionario.setCargo(txtCargo.getText());
+        funcionario.setSenha(txtSenha.getText());
+
+        FuncionarioDao dao = new FuncionarioDao();
+        dao.cadastraFuncionario(funcionario);
+
+        new Utilitarios().LimparTela(JPCadastro);
+    }//GEN-LAST:event_btnSalvarActionPerformed
+
+    private void btnNovoFuncionarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNovoFuncionarioActionPerformed
+       
+
+        new Utilitarios().LimparTela(JPCadastro);
+    }//GEN-LAST:event_btnNovoFuncionarioActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -567,7 +662,7 @@ public class FuncionarioForm extends javax.swing.JFrame {
          */
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
+                if ("Windows".equals(info.getName())) {
                     javax.swing.UIManager.setLookAndFeel(info.getClassName());
                     break;
                 }
@@ -593,6 +688,10 @@ public class FuncionarioForm extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel JPCadastro;
+    private javax.swing.JButton btnEditar;
+    private javax.swing.JButton btnExcluir;
+    private javax.swing.JButton btnNovoFuncionario;
+    private javax.swing.JButton btnSalvar;
     private javax.swing.JComboBox<String> cbUF;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
@@ -628,8 +727,8 @@ public class FuncionarioForm extends javax.swing.JFrame {
     private javax.swing.JTextField txtNivel;
     private javax.swing.JTextField txtNome;
     private javax.swing.JTextField txtNumero;
-    private javax.swing.JPasswordField txtPass;
     private javax.swing.JFormattedTextField txtRg;
+    private javax.swing.JPasswordField txtSenha;
     private javax.swing.JFormattedTextField txtTelefone;
     // End of variables declaration//GEN-END:variables
 }
