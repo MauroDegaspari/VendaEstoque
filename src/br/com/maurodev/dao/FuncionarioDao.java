@@ -47,8 +47,8 @@ public class FuncionarioDao {
              stmt.setString(12,funcionario.getCidade());
              stmt.setString(13,funcionario.getEstado());
              stmt.setString(14,funcionario.getNivel());
-             stmt.setString(14,funcionario.getCargo());
-             stmt.setString(14,funcionario.getSenha());
+             stmt.setString(15,funcionario.getCargo());
+             stmt.setString(16,funcionario.getSenha());
              
              
               // executa o comando sql

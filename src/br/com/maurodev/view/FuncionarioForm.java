@@ -8,6 +8,7 @@ import br.com.maurodev.dao.FuncionarioDao;
 import br.com.maurodev.model.FuncionarioModel;
 import br.com.maurodev.utilities.Utilitarios;
 import java.awt.event.KeyEvent;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -619,7 +620,9 @@ public class FuncionarioForm extends javax.swing.JFrame {
 
     private void btnSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalvarActionPerformed
         //botão salvar
-
+        
+        try {
+            
         FuncionarioModel funcionario = new FuncionarioModel();
 
         funcionario.setNome(txtNome.getText());
@@ -629,7 +632,7 @@ public class FuncionarioForm extends javax.swing.JFrame {
         funcionario.setTel(txtTelefone.getText());
         funcionario.setCelular(txtCelular.getText());
         funcionario.setCep(txtCEP.getText());
-        funcionario.setEndereco(txtEndereco.getText().trim());
+        funcionario.setEndereco(txtEndereco.getText());
         funcionario.setNumero(Integer.parseInt(txtNumero.getText()));
         funcionario.setComplemento(txtComplemento.getText());
         funcionario.setBairro(txtBairro.getText());
@@ -643,6 +646,12 @@ public class FuncionarioForm extends javax.swing.JFrame {
         dao.cadastraFuncionario(funcionario);
 
         new Utilitarios().LimparTela(JPCadastro);
+        
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Erro no metodo btnSalvarActionPerformed ");
+        }
+           
+
     }//GEN-LAST:event_btnSalvarActionPerformed
 
     private void btnNovoFuncionarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNovoFuncionarioActionPerformed
