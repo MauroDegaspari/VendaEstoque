@@ -4,6 +4,9 @@
  */
 package br.com.maurodev.view;
 
+import br.com.maurodev.dao.FuncionarioDao;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author Mauro
@@ -36,7 +39,8 @@ public class LoginForm extends javax.swing.JFrame {
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setTitle("Bem vindo ao sistema de Vendas&Estoque");
         setResizable(false);
 
         txtLogin.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
@@ -90,6 +94,7 @@ public class LoginForm extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
+        jLabel5.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/maurodev/image/icons8-employee-64.png"))); // NOI18N
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -137,11 +142,27 @@ public class LoginForm extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void txtSenhaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtSenhaActionPerformed
-        // TODO add your handling code here:
+       
     }//GEN-LAST:event_txtSenhaActionPerformed
 
     private void btnEntraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEntraActionPerformed
-               // Acesso ao banco e verificação de acesso
+                // receber dados no usuario e e consultar no banco
+        try {
+            String email,senha;
+            email = txtLogin.getText();
+            senha = txtSenha.getText();
+            
+            FuncionarioDao dao = new FuncionarioDao();
+            
+            dao.loginFuncionario(email, senha);
+            
+            //this - esta tela
+            this.dispose();
+                    
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Erro ");
+        }
+               
                
     }//GEN-LAST:event_btnEntraActionPerformed
 

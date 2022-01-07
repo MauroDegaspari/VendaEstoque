@@ -6,8 +6,11 @@ package br.com.maurodev.dao;
 
 import br.com.maurodev.jdbc.ConnectionFactory;
 import br.com.maurodev.model.FuncionarioModel;
+import br.com.maurodev.view.MenuForm;
 import br.com.maurodev.webservices.WebServiceCep;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.util.Locale;
 import javax.swing.JOptionPane;
 
 /**
@@ -64,13 +67,35 @@ public class FuncionarioDao {
     }
     
      // metodo achar Funcionario LOGIN
-    public FuncionarioModel loginFuncionario(String cpf, String senha){
+    public FuncionarioModel loginFuncionario(String email, String senha){
                         
          try {
-        
+             
+             //consulta sql
+             String sql ="select * from loja.tb_funcionarios "
+                       + "where email= ? "
+                       + "and senha= ?";
+             PreparedStatement stmt = con.prepareStatement(sql);
+             
+             stmt.setString(1, email);
+             stmt.setString(2, senha);
+             
+            // sempre que for fazer select
+             ResultSet rs = stmt.executeQuery();
+            
+             //(.next) se ele conseguir percorre
+             if(rs.next()){
+                 //Usuario logou
+                 JOptionPane.showMessageDialog(null, "Bem Vindo a VENDAS&ESTOQUE");
+                 MenuForm tela = new MenuForm();
+                 tela.setVisible(true);
+             }else{
+                 //usuario invalido
+                  JOptionPane.showMessageDialog(null, "DADOS ERRADO");
+             }
          
          } catch (Exception e) {
-       
+        JOptionPane.showMessageDialog(null, "erro ORA "+ e);
         }
         return null;
      }

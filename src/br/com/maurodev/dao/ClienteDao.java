@@ -189,6 +189,7 @@ public class ClienteDao {
         
         ResultSet rs = stmt.executeQuery();
         
+         //(.next) se ele conseguir percorre
         while(rs.next()){
             ClienteModel cliente = new ClienteModel();
             
