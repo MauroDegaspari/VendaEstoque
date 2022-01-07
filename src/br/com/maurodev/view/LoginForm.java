@@ -157,6 +157,7 @@ public class LoginForm extends javax.swing.JFrame {
             dao.loginFuncionario(email, senha);
             
             //this - esta tela
+            //lembra de colocar no propriedade dispose; 
             this.dispose();
                     
         } catch (Exception e) {

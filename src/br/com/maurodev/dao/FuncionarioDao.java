@@ -74,21 +74,47 @@ public class FuncionarioDao {
              //consulta sql
              String sql ="select * from loja.tb_funcionarios "
                        + "where email= ? "
-                       + "and senha= ?";
+                       + "and senha= ? ";
+             
              PreparedStatement stmt = con.prepareStatement(sql);
              
              stmt.setString(1, email);
              stmt.setString(2, senha);
-             
+                   
             // sempre que for fazer select
              ResultSet rs = stmt.executeQuery();
             
              //(.next) se ele conseguir percorre
              if(rs.next()){
-                 //Usuario logou
-                 JOptionPane.showMessageDialog(null, "Bem Vindo a VENDAS&ESTOQUE");
-                 MenuForm tela = new MenuForm();
-                 tela.setVisible(true);
+                 
+                  //Usuario logou
+                  FuncionarioModel funcNivel = new FuncionarioModel();
+                  funcNivel.setNivel(rs.getString("nivel_acesso"));
+                  funcNivel.setNome(rs.getString("nome"));
+                  String nivel = funcNivel.getNivel();
+                  String nome = funcNivel.getNome();
+                  
+                  switch (nivel) {
+                      case "MASTER":
+                           
+                            JOptionPane.showMessageDialog(null, "Bem Vindo "+ nome + " Usuario MASTER a VENDAS&ESTOQUE");
+                            MenuForm tela = new MenuForm();
+                            tela.setVisible(true);
+                            break;
+                      case "SIMPLES":
+                            JOptionPane.showMessageDialog(null, "Bem Vindo SIMPLES a VENDAS&ESTOQUE");
+                            MenuForm tela2 = new MenuForm();
+                            tela2.setVisible(true);
+                          break;
+                          
+                          default:
+                              
+                            JOptionPane.showMessageDialog(null, "Usuario cadastrado mas SEM HIERARQUIA, por favor Peça para seu Administrador cadastra seu nivel de acesso.");
+                              
+                         throw new AssertionError(); 
+                  }
+                  
+               
              }else{
                  //usuario invalido
                   JOptionPane.showMessageDialog(null, "DADOS ERRADO");
