@@ -78,7 +78,8 @@ public class FuncionarioForm extends javax.swing.JFrame {
 
         jPasswordField1.setText("jPasswordField1");
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setTitle("Cadastro de Funcionários");
 
         jPanel1.setBackground(new java.awt.Color(0, 102, 255));
 
@@ -277,7 +278,6 @@ public class FuncionarioForm extends javax.swing.JFrame {
             }
         });
 
-        txtNivel.setBackground(new java.awt.Color(255, 255, 255));
         txtNivel.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         txtNivel.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
         txtNivel.addActionListener(new java.awt.event.ActionListener() {
@@ -289,7 +289,6 @@ public class FuncionarioForm extends javax.swing.JFrame {
         jLabel4.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel4.setText("Nivel:");
 
-        txtCargo.setBackground(new java.awt.Color(255, 255, 255));
         txtCargo.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         txtCargo.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
         txtCargo.addActionListener(new java.awt.event.ActionListener() {
