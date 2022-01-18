@@ -6,133 +6,13 @@
       <SubComponents>
         <Menu class="javax.swing.JMenu" name="jMenu1">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Clientes"/>
+            <Property name="text" type="java.lang.String" value="File"/>
           </Properties>
-          <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jMenu1ActionPerformed"/>
-          </Events>
-          <SubComponents>
-            <MenuItem class="javax.swing.JMenuItem" name="jMenuItem3">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="Controle de Clientes"/>
-              </Properties>
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jMenuItem3ActionPerformed"/>
-              </Events>
-            </MenuItem>
-          </SubComponents>
         </Menu>
         <Menu class="javax.swing.JMenu" name="jMenu2">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Funcion&#xe1;rios"/>
+            <Property name="text" type="java.lang.String" value="Edit"/>
           </Properties>
-          <SubComponents>
-            <MenuItem class="javax.swing.JMenuItem" name="jMenuItem1">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="Controle de Funcion&#xe1;rios"/>
-              </Properties>
-            </MenuItem>
-            <MenuItem class="javax.swing.JMenuItem" name="jMenuItem10">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="Cadastrar Funcion&#xe1;rio"/>
-              </Properties>
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jMenuItem10ActionPerformed"/>
-              </Events>
-            </MenuItem>
-          </SubComponents>
-        </Menu>
-        <Menu class="javax.swing.JMenu" name="jMenu3">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="Vendas"/>
-          </Properties>
-          <SubComponents>
-            <MenuItem class="javax.swing.JMenuItem" name="jMenuItem7">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="Abrir PDV"/>
-              </Properties>
-            </MenuItem>
-            <MenuItem class="javax.swing.JMenuItem" name="jMenuItem8">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="Posi&#xe7;&#xe3;o do Dia"/>
-              </Properties>
-            </MenuItem>
-            <MenuItem class="javax.swing.JMenuItem" name="jMenuItem9">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="Historico de Vendas"/>
-              </Properties>
-            </MenuItem>
-          </SubComponents>
-        </Menu>
-        <Menu class="javax.swing.JMenu" name="jMenu8">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="Produtos"/>
-          </Properties>
-          <SubComponents>
-            <Menu class="javax.swing.JMenu" name="jMenu9">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="Controle de Estoque"/>
-              </Properties>
-            </Menu>
-            <Menu class="javax.swing.JMenu" name="jMenu10">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="Consulta de Produtos"/>
-              </Properties>
-            </Menu>
-          </SubComponents>
-        </Menu>
-        <Menu class="javax.swing.JMenu" name="jMenu4">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="Fornecedor"/>
-          </Properties>
-          <SubComponents>
-            <MenuItem class="javax.swing.JMenuItem" name="jMenuItem4">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="Controle de Fornecedor"/>
-              </Properties>
-            </MenuItem>
-          </SubComponents>
-        </Menu>
-        <Menu class="javax.swing.JMenu" name="jMenu5">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="Configura&#xe7;&#xf5;es"/>
-          </Properties>
-          <SubComponents>
-            <MenuItem class="javax.swing.JMenuItem" name="jMenuItem2">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="Troca de Usu&#xe1;rios"/>
-              </Properties>
-            </MenuItem>
-          </SubComponents>
-        </Menu>
-        <Menu class="javax.swing.JMenu" name="jMenu6">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="Sobre"/>
-          </Properties>
-          <SubComponents>
-            <Menu class="javax.swing.JMenu" name="jMenu7">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="Informa&#xe7;&#xf5;es Sistema"/>
-              </Properties>
-            </Menu>
-            <Menu class="javax.swing.JMenu" name="jMenu11">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="Desenvolvedor"/>
-              </Properties>
-              <SubComponents>
-                <MenuItem class="javax.swing.JMenuItem" name="jMenuItem5">
-                  <Properties>
-                    <Property name="text" type="java.lang.String" value="Abaco Sistem"/>
-                  </Properties>
-                </MenuItem>
-                <MenuItem class="javax.swing.JMenuItem" name="jMenuItem6">
-                  <Properties>
-                    <Property name="text" type="java.lang.String" value="Mauro Degaspari"/>
-                  </Properties>
-                </MenuItem>
-              </SubComponents>
-            </Menu>
-          </SubComponents>
         </Menu>
       </SubComponents>
     </Menu>
@@ -163,36 +43,54 @@
   <Layout>
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Component id="pnDesktop" alignment="0" max="32767" attributes="0"/>
+          <Component id="jPanel1" alignment="0" max="32767" attributes="0"/>
       </Group>
     </DimensionLayout>
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Group type="102" alignment="0" attributes="0">
-              <Component id="pnDesktop" min="-2" max="-2" attributes="0"/>
-              <EmptySpace min="0" pref="30" max="32767" attributes="0"/>
+          <Group type="102" alignment="1" attributes="0">
+              <EmptySpace min="0" pref="261" max="32767" attributes="0"/>
+              <Component id="jPanel1" min="-2" max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
   </Layout>
   <SubComponents>
-    <Container class="javax.swing.JDesktopPane" name="pnDesktop">
-      <AuxValues>
-        <AuxValue name="JavaCodeGenerator_CreateCodeCustom" type="java.lang.String" value="new javax.swing.JDesktopPane()"/>
-      </AuxValues>
+    <Container class="javax.swing.JPanel" name="jPanel1">
 
       <Layout>
         <DimensionLayout dim="0">
           <Group type="103" groupAlignment="0" attributes="0">
-              <EmptySpace min="0" pref="702" max="32767" attributes="0"/>
+              <Group type="102" alignment="0" attributes="0">
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Component id="LblFuncionario" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace pref="307" max="32767" attributes="0"/>
+              </Group>
           </Group>
         </DimensionLayout>
         <DimensionLayout dim="1">
           <Group type="103" groupAlignment="0" attributes="0">
-              <EmptySpace min="0" pref="302" max="32767" attributes="0"/>
+              <Group type="103" alignment="0" groupAlignment="3" attributes="0">
+                  <Component id="jLabel1" alignment="3" pref="27" max="32767" attributes="0"/>
+                  <Component id="LblFuncionario" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
           </Group>
         </DimensionLayout>
       </Layout>
+      <SubComponents>
+        <Component class="javax.swing.JLabel" name="jLabel1">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Usu&#xe1;rio:"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="LblFuncionario">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="jLabel2"/>
+          </Properties>
+        </Component>
+      </SubComponents>
     </Container>
   </SubComponents>
 </Form>

@@ -10,9 +10,7 @@ package br.com.maurodev.view;
  */
 public class MenuForm extends javax.swing.JFrame {
 
-    /**
-     * Creates new form MenuForm
-     */
+    public String funcionarioLogadoLabel;
     public MenuForm() {
         initComponents();
     }
@@ -26,29 +24,12 @@ public class MenuForm extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        pnDesktop = new javax.swing.JDesktopPane();
+        jPanel1 = new javax.swing.JPanel();
+        jLabel1 = new javax.swing.JLabel();
+        LblFuncionario = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
-        jMenuItem3 = new javax.swing.JMenuItem();
         jMenu2 = new javax.swing.JMenu();
-        jMenuItem1 = new javax.swing.JMenuItem();
-        jMenuItem10 = new javax.swing.JMenuItem();
-        jMenu3 = new javax.swing.JMenu();
-        jMenuItem7 = new javax.swing.JMenuItem();
-        jMenuItem8 = new javax.swing.JMenuItem();
-        jMenuItem9 = new javax.swing.JMenuItem();
-        jMenu8 = new javax.swing.JMenu();
-        jMenu9 = new javax.swing.JMenu();
-        jMenu10 = new javax.swing.JMenu();
-        jMenu4 = new javax.swing.JMenu();
-        jMenuItem4 = new javax.swing.JMenuItem();
-        jMenu5 = new javax.swing.JMenu();
-        jMenuItem2 = new javax.swing.JMenuItem();
-        jMenu6 = new javax.swing.JMenu();
-        jMenu7 = new javax.swing.JMenu();
-        jMenu11 = new javax.swing.JMenu();
-        jMenuItem5 = new javax.swing.JMenuItem();
-        jMenuItem6 = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         addWindowListener(new java.awt.event.WindowAdapter() {
@@ -57,102 +38,33 @@ public class MenuForm extends javax.swing.JFrame {
             }
         });
 
-        javax.swing.GroupLayout pnDesktopLayout = new javax.swing.GroupLayout(pnDesktop);
-        pnDesktop.setLayout(pnDesktopLayout);
-        pnDesktopLayout.setHorizontalGroup(
-            pnDesktopLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 702, Short.MAX_VALUE)
+        jLabel1.setText("Usuário:");
+
+        LblFuncionario.setText("jLabel2");
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(LblFuncionario)
+                .addContainerGap(307, Short.MAX_VALUE))
         );
-        pnDesktopLayout.setVerticalGroup(
-            pnDesktopLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 302, Short.MAX_VALUE)
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 27, Short.MAX_VALUE)
+                .addComponent(LblFuncionario))
         );
 
-        jMenu1.setText("Clientes");
-        jMenu1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenu1ActionPerformed(evt);
-            }
-        });
-
-        jMenuItem3.setText("Controle de Clientes");
-        jMenuItem3.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem3ActionPerformed(evt);
-            }
-        });
-        jMenu1.add(jMenuItem3);
-
+        jMenu1.setText("File");
         jMenuBar1.add(jMenu1);
 
-        jMenu2.setText("Funcionários");
-
-        jMenuItem1.setText("Controle de Funcionários");
-        jMenu2.add(jMenuItem1);
-
-        jMenuItem10.setText("Cadastrar Funcionário");
-        jMenuItem10.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem10ActionPerformed(evt);
-            }
-        });
-        jMenu2.add(jMenuItem10);
-
+        jMenu2.setText("Edit");
         jMenuBar1.add(jMenu2);
-
-        jMenu3.setText("Vendas");
-
-        jMenuItem7.setText("Abrir PDV");
-        jMenu3.add(jMenuItem7);
-
-        jMenuItem8.setText("Posição do Dia");
-        jMenu3.add(jMenuItem8);
-
-        jMenuItem9.setText("Historico de Vendas");
-        jMenu3.add(jMenuItem9);
-
-        jMenuBar1.add(jMenu3);
-
-        jMenu8.setText("Produtos");
-
-        jMenu9.setText("Controle de Estoque");
-        jMenu8.add(jMenu9);
-
-        jMenu10.setText("Consulta de Produtos");
-        jMenu8.add(jMenu10);
-
-        jMenuBar1.add(jMenu8);
-
-        jMenu4.setText("Fornecedor");
-
-        jMenuItem4.setText("Controle de Fornecedor");
-        jMenu4.add(jMenuItem4);
-
-        jMenuBar1.add(jMenu4);
-
-        jMenu5.setText("Configurações");
-
-        jMenuItem2.setText("Troca de Usuários");
-        jMenu5.add(jMenuItem2);
-
-        jMenuBar1.add(jMenu5);
-
-        jMenu6.setText("Sobre");
-
-        jMenu7.setText("Informações Sistema");
-        jMenu6.add(jMenu7);
-
-        jMenu11.setText("Desenvolvedor");
-
-        jMenuItem5.setText("Abaco Sistem");
-        jMenu11.add(jMenuItem5);
-
-        jMenuItem6.setText("Mauro Degaspari");
-        jMenu11.add(jMenuItem6);
-
-        jMenu6.add(jMenu11);
-
-        jMenuBar1.add(jMenu6);
 
         setJMenuBar(jMenuBar1);
 
@@ -160,39 +72,26 @@ public class MenuForm extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(pnDesktop)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(pnDesktop, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 30, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(0, 261, Short.MAX_VALUE)
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jMenu1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenu1ActionPerformed
-        ClienteForm clienteForm = new ClienteForm();
-        clienteForm.setVisible(true);
-    }//GEN-LAST:event_jMenu1ActionPerformed
-
-    private void jMenuItem3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem3ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jMenuItem3ActionPerformed
-
     private void formWindowActivated(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowActivated
-        // Inicialização da tela
+        // TODO add your handling code here:
+          
+          this.setExtendedState(this.MAXIMIZED_BOTH);
+          LblFuncionario.setText(funcionarioLogadoLabel);
+          
         
-        this.setExtendedState(this.MAXIMIZED_BOTH);
-        this.setVisible(true);
     }//GEN-LAST:event_formWindowActivated
-
-    private void jMenuItem10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem10ActionPerformed
-        // metodp de chamando Forms
-        FuncionarioForm form = new FuncionarioForm();
-        form.setVisible(true);
-    }//GEN-LAST:event_jMenuItem10ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -205,6 +104,7 @@ public class MenuForm extends javax.swing.JFrame {
          */
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
+               //FlatLaf Dark
                 if ("Windows".equals(info.getName())) {
                     javax.swing.UIManager.setLookAndFeel(info.getClassName());
                     break;
@@ -230,28 +130,11 @@ public class MenuForm extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel LblFuncionario;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JMenu jMenu1;
-    private javax.swing.JMenu jMenu10;
-    private javax.swing.JMenu jMenu11;
     private javax.swing.JMenu jMenu2;
-    private javax.swing.JMenu jMenu3;
-    private javax.swing.JMenu jMenu4;
-    private javax.swing.JMenu jMenu5;
-    private javax.swing.JMenu jMenu6;
-    private javax.swing.JMenu jMenu7;
-    private javax.swing.JMenu jMenu8;
-    private javax.swing.JMenu jMenu9;
     private javax.swing.JMenuBar jMenuBar1;
-    private javax.swing.JMenuItem jMenuItem1;
-    private javax.swing.JMenuItem jMenuItem10;
-    private javax.swing.JMenuItem jMenuItem2;
-    private javax.swing.JMenuItem jMenuItem3;
-    private javax.swing.JMenuItem jMenuItem4;
-    private javax.swing.JMenuItem jMenuItem5;
-    private javax.swing.JMenuItem jMenuItem6;
-    private javax.swing.JMenuItem jMenuItem7;
-    private javax.swing.JMenuItem jMenuItem8;
-    private javax.swing.JMenuItem jMenuItem9;
-    private javax.swing.JDesktopPane pnDesktop;
+    private javax.swing.JPanel jPanel1;
     // End of variables declaration//GEN-END:variables
 }

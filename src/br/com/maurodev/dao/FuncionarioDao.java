@@ -10,7 +10,6 @@ import br.com.maurodev.view.MenuForm;
 import br.com.maurodev.webservices.WebServiceCep;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
-import java.util.Locale;
 import javax.swing.JOptionPane;
 
 /**
@@ -99,6 +98,7 @@ public class FuncionarioDao {
                            
                             JOptionPane.showMessageDialog(null, "Bem Vindo "+ nome + " Usuario MASTER a VENDAS&ESTOQUE");
                             MenuForm tela = new MenuForm();
+                            tela.funcionarioLogadoLabel =rs.getString("nome");
                             tela.setVisible(true);
                             break;
                       case "SIMPLES":
