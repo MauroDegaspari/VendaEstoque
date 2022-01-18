@@ -6,6 +6,7 @@ package br.com.maurodev.dao;
 
 import br.com.maurodev.jdbc.ConnectionFactory;
 import br.com.maurodev.model.FuncionarioModel;
+import br.com.maurodev.view.LoginForm;
 import br.com.maurodev.view.MenuForm;
 import br.com.maurodev.webservices.WebServiceCep;
 import java.sql.PreparedStatement;
@@ -94,11 +95,11 @@ public class FuncionarioDao {
                   String nome = funcNivel.getNome();
                   
                   switch (nivel) {
-                      case "MASTER":
-                           
+                      case "MASTER":                           
                             JOptionPane.showMessageDialog(null, "Bem Vindo "+ nome + " Usuario MASTER a VENDAS&ESTOQUE");
                             MenuForm tela = new MenuForm();
                             tela.funcionarioLogadoLabel =rs.getString("nome");
+                            tela.FuncionarioNivelLabel = rs.getString("nivel_acesso");
                             tela.setVisible(true);
                             break;
                       case "SIMPLES":
@@ -118,6 +119,9 @@ public class FuncionarioDao {
              }else{
                  //usuario invalido
                   JOptionPane.showMessageDialog(null, "DADOS ERRADO");
+                  
+                    //manter a tela aberta caso os dados estejam errados
+                  new LoginForm().setVisible(true);
              }
          
          } catch (Exception e) {

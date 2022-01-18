@@ -121,6 +121,7 @@ public class FuncionarioForm extends javax.swing.JFrame {
         jLabel5.setText("Nome:");
 
         txtNome.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        txtNome.setToolTipText("Pesquisa");
         txtNome.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtNomeActionPerformed(evt);

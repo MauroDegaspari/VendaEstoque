@@ -11,6 +11,8 @@ package br.com.maurodev.view;
 public class MenuForm extends javax.swing.JFrame {
 
     public String funcionarioLogadoLabel;
+    public String FuncionarioNivelLabel;
+    
     public MenuForm() {
         initComponents();
     }
@@ -27,11 +29,17 @@ public class MenuForm extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         LblFuncionario = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        LblNivel = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
+        jMenuItem1 = new javax.swing.JMenuItem();
+        jMenu3 = new javax.swing.JMenu();
+        jMenuItem2 = new javax.swing.JMenuItem();
         jMenu2 = new javax.swing.JMenu();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("VENDAS & ESTOQUE");
         addWindowListener(new java.awt.event.WindowAdapter() {
             public void windowActivated(java.awt.event.WindowEvent evt) {
                 formWindowActivated(evt);
@@ -40,7 +48,13 @@ public class MenuForm extends javax.swing.JFrame {
 
         jLabel1.setText("Usuário:");
 
+        LblFuncionario.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        LblFuncionario.setForeground(new java.awt.Color(51, 51, 255));
         LblFuncionario.setText("jLabel2");
+
+        jLabel2.setText("Nivel Acesso:");
+
+        LblNivel.setText("jLabel3");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -51,17 +65,44 @@ public class MenuForm extends javax.swing.JFrame {
                 .addComponent(jLabel1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(LblFuncionario)
-                .addContainerGap(307, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 185, Short.MAX_VALUE)
+                .addComponent(jLabel2)
+                .addGap(5, 5, 5)
+                .addComponent(LblNivel)
+                .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                 .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 27, Short.MAX_VALUE)
-                .addComponent(LblFuncionario))
+                .addComponent(LblFuncionario)
+                .addComponent(jLabel2)
+                .addComponent(LblNivel))
         );
 
-        jMenu1.setText("File");
+        jMenu1.setText("Clientes");
+
+        jMenuItem1.setText("Cadastro / Consulta");
+        jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem1ActionPerformed(evt);
+            }
+        });
+        jMenu1.add(jMenuItem1);
+
         jMenuBar1.add(jMenu1);
+
+        jMenu3.setText("Funcionários");
+
+        jMenuItem2.setText("Cadastro Func.");
+        jMenuItem2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem2ActionPerformed(evt);
+            }
+        });
+        jMenu3.add(jMenuItem2);
+
+        jMenuBar1.add(jMenu3);
 
         jMenu2.setText("Edit");
         jMenuBar1.add(jMenu2);
@@ -89,9 +130,23 @@ public class MenuForm extends javax.swing.JFrame {
           
           this.setExtendedState(this.MAXIMIZED_BOTH);
           LblFuncionario.setText(funcionarioLogadoLabel);
+          LblNivel.setText(FuncionarioNivelLabel);
+          this.setVisible(true);
           
         
     }//GEN-LAST:event_formWindowActivated
+
+    private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
+            // TODO add your handling code here:
+            ClienteForm tela = new ClienteForm();
+            tela.setVisible(true);
+    }//GEN-LAST:event_jMenuItem1ActionPerformed
+
+    private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
+        // Chamado da tela de cadastro:
+        FuncionarioForm tela = new FuncionarioForm();
+        tela.setVisible(true);
+    }//GEN-LAST:event_jMenuItem2ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -131,10 +186,15 @@ public class MenuForm extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel LblFuncionario;
+    private javax.swing.JLabel LblNivel;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
+    private javax.swing.JMenu jMenu3;
     private javax.swing.JMenuBar jMenuBar1;
+    private javax.swing.JMenuItem jMenuItem1;
+    private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JPanel jPanel1;
     // End of variables declaration//GEN-END:variables
 }
