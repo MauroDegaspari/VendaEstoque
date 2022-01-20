@@ -6,6 +6,7 @@ package br.com.maurodev.view;
 
 import br.com.maurodev.dao.FornecedorDao;
 import br.com.maurodev.model.FornecedorModel;
+import br.com.maurodev.utilities.Utilitarios;
 import javax.swing.JOptionPane;
 
 /**
@@ -480,6 +481,7 @@ public class FornecedoresForm extends javax.swing.JFrame {
         try {
              
             FornecedorModel fornec = new FornecedorModel();
+            Utilitarios util = new Utilitarios();
         
             fornec.setNome(TxtNome.getText());
             fornec.setCnpj(TxtCnpj.getText());
@@ -496,6 +498,10 @@ public class FornecedoresForm extends javax.swing.JFrame {
             
             FornecedorDao dao = new FornecedorDao();
             dao.cadastrarFornecedor(fornec);
+            
+            util.LimparTela(jPanel2);
+            
+            
            
         } catch (Exception e) {
              JOptionPane.showConfirmDialog(null, "Erro de Variavel");
