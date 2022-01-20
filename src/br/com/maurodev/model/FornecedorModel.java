@@ -4,41 +4,26 @@
  */
 package br.com.maurodev.model;
 
-
-
 /**
  *
  * @author Mauro
  */
-public class ClienteModel {
-    
-    private int id;
-    private int numero;
-    private String tel;
-    private String nome;
-    private String email;
-    private String endereco;
-    private String complemento;
-    private String bairro;
-    private String cidade;
-    private String estado;
-    private String cpf;
-    private String cep;
-    private String rg;
-    private String uf;
-    private String celular;
+public class FornecedorModel {
+  
+  private int id;
+  private String nome;
+  private String cnpj;
+  private String email;
+  private String telefone;
+  private String celular;
+  private String cep;
+  private String endereco;
+  private int numero;
+  private String complemento;
+  private String bairro;
+  private String cidade;
+  private String estado;
 
-    public String getCelular() {
-        return celular;
-    }
-
-    public void setCelular(String celular) {
-        this.celular = celular;
-    }
-
-    
-    
-    
     public int getId() {
         return id;
     }
@@ -47,21 +32,20 @@ public class ClienteModel {
         this.id = id;
     }
 
-    public int getNumero() {
-        return numero;
-    }
-
-    public void setNumero(int numero) {
-        this.numero = numero;
-    }
-
-   
     public String getNome() {
         return nome;
     }
 
     public void setNome(String nome) {
         this.nome = nome;
+    }
+
+    public String getCnpj() {
+        return cnpj;
+    }
+
+    public void setCnpj(String cnpj) {
+        this.cnpj = cnpj;
     }
 
     public String getEmail() {
@@ -72,12 +56,44 @@ public class ClienteModel {
         this.email = email;
     }
 
+    public String getTelefone() {
+        return telefone;
+    }
+
+    public void setTelefone(String telefone) {
+        this.telefone = telefone;
+    }
+
+    public String getCelular() {
+        return celular;
+    }
+
+    public void setCelular(String celular) {
+        this.celular = celular;
+    }
+
+    public String getCep() {
+        return cep;
+    }
+
+    public void setCep(String cep) {
+        this.cep = cep;
+    }
+
     public String getEndereco() {
         return endereco;
     }
 
     public void setEndereco(String endereco) {
         this.endereco = endereco;
+    }
+
+    public int getNumero() {
+        return numero;
+    }
+
+    public void setNumero(int numero) {
+        this.numero = numero;
     }
 
     public String getComplemento() {
@@ -111,50 +127,7 @@ public class ClienteModel {
     public void setEstado(String estado) {
         this.estado = estado;
     }
-
-    public String getCpf() {
-        return cpf;
-    }
-
-    public void setCpf(String cpf) {
-        this.cpf = cpf;
-    }
-
-    public String getCep() {
-        return cep;
-    }
-
-    public void setCep(String cep) {
-        this.cep = cep;
-    }
-
-    public String getRg() {
-        return rg;
-    }
-
-    public void setRg(String rg) {
-        this.rg = rg;
-    }
-
-    public String getUf() {
-        return uf;
-    }
-
-    public void setUf(String uf) {
-        this.uf = uf;
-    }
-
-    public String getTel() {
-        return tel;
-    }
-
-    public void setTel(String tel) {
-        this.tel = tel;
-    }
-
-       
-    
-
+  
+  
+  
 }
-
-

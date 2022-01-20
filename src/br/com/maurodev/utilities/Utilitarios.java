@@ -14,6 +14,7 @@ import javax.swing.JTextField;
  */
 public class Utilitarios {
     
+    //Metodo para limpar a tela quando necessario
     public void LimparTela(JPanel painel){
         Component components[]= painel.getComponents();
         for(Component component: components){
