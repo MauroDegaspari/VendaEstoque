@@ -7,6 +7,9 @@ package br.com.maurodev.dao;
 import br.com.maurodev.jdbc.ConnectionFactory;
 import br.com.maurodev.model.FornecedorModel;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.util.ArrayList;
+import java.util.List;
 import javax.swing.JOptionPane;
 
 /**
@@ -50,9 +53,38 @@ public class FornecedorDao {
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null,"ORA - ERRO DE BANCO"+ e);
         }
-       
+               
+    }
     
-                   
+    //metodo de listar fornecedores
+    public List<FornecedorModel> listarFornecedor(){
+        try {
+            
+                     //1 criar a listar
+            List<FornecedorModel> lista = new ArrayList<>();
+            
+            String sql = "SELECT * FROM loja.tb_fornecedores";
+            
+            PreparedStatement ps = con.prepareStatement(sql); 
+            
+            ResultSet rs = ps.executeQuery();
+            
+             while(rs.next()){
+                 FornecedorModel fornec = new FornecedorModel();
+                 
+                 fornec.setId(rs.getInt("id"));
+                 fornec.setNome(rs.getString("nome"));
+                 
+                 lista.add(fornec);
+             }
+             
+             return lista;
+                       
+        } catch (Exception e) {
+           
+            JOptionPane.showMessageDialog(null,"ORA - erro ao carregar fornecedores"+e);
+            return null;
+        }
     }
     
 }
