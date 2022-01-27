@@ -128,6 +128,10 @@ public class FornecedorModel {
         this.estado = estado;
     }
   
+    @Override
+    public String toString(){
+       return this.getNome();
+     }
   
   
 }
