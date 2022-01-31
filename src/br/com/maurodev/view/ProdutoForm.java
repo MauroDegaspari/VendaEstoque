@@ -140,6 +140,11 @@ public class ProdutoForm extends javax.swing.JFrame {
             public void ancestorRemoved(javax.swing.event.AncestorEvent evt) {
             }
         });
+        jComboBox2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jComboBox2ActionPerformed(evt);
+            }
+        });
 
         jLabel7.setText("Fornecedor:");
 
@@ -327,6 +332,10 @@ public class ProdutoForm extends javax.swing.JFrame {
             jComboBox2.addItem(f);
         }
     }//GEN-LAST:event_jComboBox2AncestorAdded
+
+    private void jComboBox2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jComboBox2ActionPerformed
 
     /**
      * @param args the command line arguments

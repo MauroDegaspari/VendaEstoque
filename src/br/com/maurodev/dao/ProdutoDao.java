@@ -5,17 +5,17 @@
 package br.com.maurodev.dao;
 
 import br.com.maurodev.jdbc.ConnectionFactory;
-import com.sun.jdi.connect.spi.Connection;
+import java.sql.Connection;
 
 /**
  *
  * @author Mauro
  */
 public class ProdutoDao {
-    
+
     private Connection con;
-    
-    public ProdutoDao(){
-       
+
+    public ProdutoDao() {
+       this.con = new ConnectionFactory().getConnetion();
     }
 }
