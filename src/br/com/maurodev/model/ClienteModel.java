@@ -25,7 +25,6 @@ public class ClienteModel {
     private String cpf;
     private String cep;
     private String rg;
-    private String uf;
     private String celular;
 
     public String getCelular() {
@@ -134,14 +133,6 @@ public class ClienteModel {
 
     public void setRg(String rg) {
         this.rg = rg;
-    }
-
-    public String getUf() {
-        return uf;
-    }
-
-    public void setUf(String uf) {
-        this.uf = uf;
     }
 
     public String getTel() {

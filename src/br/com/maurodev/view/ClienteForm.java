@@ -43,7 +43,7 @@ public class ClienteForm extends javax.swing.JFrame {
                 c.getComplemento(),
                 c.getBairro(),
                 c.getCidade(),
-                c.getUf()
+                c.getEstado()
             });
         }
 
@@ -639,7 +639,7 @@ public class ClienteForm extends javax.swing.JFrame {
         cliente.setComplemento(txtComplemento.getText());
         cliente.setBairro(txtBairro.getText());
         cliente.setCidade(txtCidade.getText());
-        cliente.setUf(cbUF.getSelectedItem().toString());
+        cliente.setEstado(cbUF.getSelectedItem().toString());
 
         cliente.setId(Integer.parseInt(txtCodigo.getText()));
 
@@ -668,7 +668,7 @@ public class ClienteForm extends javax.swing.JFrame {
         cliente.setComplemento(txtComplemento.getText());
         cliente.setBairro(txtBairro.getText());
         cliente.setCidade(txtCidade.getText());
-        cliente.setUf(cbUF.getSelectedItem().toString());
+        cliente.setEstado(cbUF.getSelectedItem().toString());
 
         ClienteDao dao = new ClienteDao();
         dao.cadastraCliente(cliente);
@@ -712,7 +712,7 @@ public class ClienteForm extends javax.swing.JFrame {
                 c.getComplemento(),
                 c.getBairro(),
                 c.getCidade(),
-                c.getUf()
+                c.getEstado()
             });
         }
 
@@ -743,7 +743,7 @@ public class ClienteForm extends javax.swing.JFrame {
            txtCidade.setText(cliente.getCidade());
            txtComplemento.setText(cliente.getComplemento());
            txtNumero.setText(String.valueOf(cliente.getNumero()));
-           cbUF.setSelectedItem(cliente.getUf());
+           cbUF.setSelectedItem(cliente.getEstado());
            txtEmail.setText(cliente.getEmail());
            txtEndereco.setText(cliente.getEndereco());
            
@@ -860,7 +860,7 @@ public class ClienteForm extends javax.swing.JFrame {
                 c.getComplemento(),
                 c.getBairro(),
                 c.getCidade(),
-                c.getUf()
+                c.getEstado()
             });
         }
 
@@ -878,8 +878,8 @@ public class ClienteForm extends javax.swing.JFrame {
          txtEndereco.setText(obj.getEndereco());
          txtBairro.setText(obj.getBairro());
          txtCidade.setText(obj.getCidade());
-         cbUF.setSelectedItem(obj.getUf());               
-         System.out.println(obj.getUf());
+         cbUF.setSelectedItem(obj.getEstado());               
+         System.out.println(obj.getEstado());
          
     }//GEN-LAST:event_txtCEPKeyPressed
     }

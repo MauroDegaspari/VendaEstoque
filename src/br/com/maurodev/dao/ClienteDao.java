@@ -93,7 +93,7 @@ public class ClienteDao {
             cliente.setComplemento(rs.getString("complemento"));
             cliente.setBairro(rs.getString("bairro"));
             cliente.setCidade(rs.getString("Cidade"));
-            cliente.setUf(rs.getString("estado"));
+            cliente.setEstado(rs.getString("estado"));
             
             lista.add(cliente);
             
@@ -206,7 +206,7 @@ public class ClienteDao {
             cliente.setComplemento(rs.getString("complemento"));
             cliente.setBairro(rs.getString("bairro"));
             cliente.setCidade(rs.getString("Cidade"));            
-            cliente.setUf(rs.getString("uf"));
+            cliente.setEstado(rs.getString("estado"));
             
             lista.add(cliente);
             
@@ -251,7 +251,7 @@ public class ClienteDao {
             cliente.setComplemento(rs.getString("complemento"));
             cliente.setBairro(rs.getString("bairro"));
             cliente.setCidade(rs.getString("Cidade"));
-            cliente.setUf(rs.getString("estado"));
+            cliente.setEstado(rs.getString("estado"));
                                    
         }
             return cliente;
@@ -278,7 +278,7 @@ public class ClienteDao {
             obj.setEndereco(webServiceCep.getLogradouroFull());
             obj.setCidade(webServiceCep.getCidade());
             obj.setBairro(webServiceCep.getBairro());
-            obj.setUf(webServiceCep.getUf());
+            obj.setEstado(webServiceCep.getUf());
             return obj;
         } else {
             JOptionPane.showMessageDialog(null, "Erro numero: " + webServiceCep.getResulCode());
