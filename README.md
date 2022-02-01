@@ -1,5 +1,5 @@
 # VendaEstoque
- Sistema desktop para controle de estoque, vendas com gerenciamento de funcionários, clientes, produtos, fornecedores, histórico de vendas, baixa em estoque e permissões de acesso
+ Sistema desktop para controle de estoque e vendas com gerenciamento de funcionários, clientes, produtos, fornecedores, histórico de vendas, baixa em estoque e permissões de acesso
 
 ## Objetivo
  Um controle de vendas em Java Desktop<br> 
@@ -9,12 +9,17 @@
    *Salvar<br> 
    *Alterar<br> 
    *Editar<br> 
-   *Deletar<br> 
+   *Deletar<br>
+   
+   -Cadastro de Funcionários<br>
+   *Salvar<br>
+   
+   -Cadastro de Fornecedores<br>
+   *Salvar<br>
+   
 
-<strong> implementações para implementar</strong>
+<strong> implementações para implementar</strong>  
  
- -Cadastro de Funcionários<br> 
- -Cadastro de Fornecedores<br> 
  -Cadastro de Produtos<br> 
  -Cadastro e controle de Vendas
 
