@@ -12,6 +12,7 @@ public class MenuForm extends javax.swing.JFrame {
 
     public String funcionarioLogadoLabel;
     public String FuncionarioNivelLabel;
+    public String funcionarioCargo;
     
     public MenuForm() {
         initComponents();
@@ -33,6 +34,8 @@ public class MenuForm extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         LblNivel = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
+        jLabel13 = new javax.swing.JLabel();
+        LblCargo = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
@@ -89,9 +92,10 @@ public class MenuForm extends javax.swing.JFrame {
 
         jPanel3.setBackground(new java.awt.Color(51, 102, 255));
 
-        jLabel1.setText("Usuário:");
+        jLabel1.setFont(new java.awt.Font("Verdana", 0, 14)); // NOI18N
+        jLabel1.setText("Funcionário:");
 
-        LblFuncionario.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        LblFuncionario.setFont(new java.awt.Font("Verdana", 1, 14)); // NOI18N
         LblFuncionario.setForeground(new java.awt.Color(255, 255, 255));
         LblFuncionario.setText("jLabel2");
 
@@ -99,14 +103,24 @@ public class MenuForm extends javax.swing.JFrame {
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));
         jLabel3.setText("Equipe");
 
+        jLabel2.setFont(new java.awt.Font("Verdana", 0, 11)); // NOI18N
         jLabel2.setText("Nivel Acesso:");
 
+        LblNivel.setFont(new java.awt.Font("Verdana", 0, 11)); // NOI18N
         LblNivel.setForeground(new java.awt.Color(255, 255, 255));
         LblNivel.setText("jLabel3");
 
         jLabel4.setFont(new java.awt.Font("Trebuchet MS", 1, 14)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(255, 255, 255));
         jLabel4.setText("Abaco System");
+
+        jLabel13.setFont(new java.awt.Font("Verdana", 0, 11)); // NOI18N
+        jLabel13.setText("Cargo:");
+
+        LblCargo.setBackground(new java.awt.Color(255, 255, 255));
+        LblCargo.setFont(new java.awt.Font("Verdana", 0, 11)); // NOI18N
+        LblCargo.setForeground(new java.awt.Color(255, 255, 255));
+        LblCargo.setText("jLabel14");
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
@@ -115,16 +129,22 @@ public class MenuForm extends javax.swing.JFrame {
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel3)
-                    .addComponent(jLabel4))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 868, Short.MAX_VALUE)
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jLabel2)
-                    .addComponent(jLabel1))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel3)
+                            .addComponent(jLabel4))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 818, Short.MAX_VALUE)
+                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jLabel13, javax.swing.GroupLayout.Alignment.TRAILING)))
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(jLabel2)))
+                .addGap(18, 18, 18)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(LblNivel)
-                    .addComponent(LblFuncionario))
+                    .addComponent(LblFuncionario)
+                    .addComponent(LblCargo))
                 .addGap(57, 57, 57))
         );
         jPanel3Layout.setVerticalGroup(
@@ -136,9 +156,13 @@ public class MenuForm extends javax.swing.JFrame {
                     .addComponent(LblFuncionario))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel2)
                     .addComponent(LblNivel)
-                    .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel13)
+                    .addComponent(LblCargo))
                 .addContainerGap())
         );
 
@@ -309,7 +333,7 @@ public class MenuForm extends javax.swing.JFrame {
                         .addComponent(jLabel11))
                     .addGroup(jPanel5Layout.createSequentialGroup()
                         .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 245, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, Short.MAX_VALUE)))
+                        .addGap(0, 112, Short.MAX_VALUE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(26, 26, 26))
@@ -543,8 +567,8 @@ public class MenuForm extends javax.swing.JFrame {
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(1, 1, 1)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(layout.createSequentialGroup()
@@ -562,6 +586,7 @@ public class MenuForm extends javax.swing.JFrame {
           this.setExtendedState(this.MAXIMIZED_BOTH);
           LblFuncionario.setText(funcionarioLogadoLabel);
           LblNivel.setText(FuncionarioNivelLabel);
+          LblCargo.setText(funcionarioCargo);
           this.setVisible(true);
           
         
@@ -652,6 +677,7 @@ public class MenuForm extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel LblCargo;
     private javax.swing.JLabel LblFuncionario;
     private javax.swing.JLabel LblNivel;
     private java.awt.Button button1;
@@ -667,6 +693,7 @@ public class MenuForm extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
+    private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;

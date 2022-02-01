@@ -91,20 +91,25 @@ public class FuncionarioDao {
                   FuncionarioModel funcNivel = new FuncionarioModel();
                   funcNivel.setNivel(rs.getString("nivel_acesso"));
                   funcNivel.setNome(rs.getString("nome"));
+                  
                   String nivel = funcNivel.getNivel();
                   String nome = funcNivel.getNome();
                   
                   switch (nivel) {
-                      case "MASTER":                           
-                            JOptionPane.showMessageDialog(null, "Bem Vindo "+ nome + " Usuario MASTER a VENDAS&ESTOQUE");
+                      case "Admin":                           
+                            JOptionPane.showMessageDialog(null, "Bem Vindo funcionário "+ nome + ", Seu nivel de acesso é de ADMINISTRADOR DO SISTEMA");
                             MenuForm tela = new MenuForm();
                             tela.funcionarioLogadoLabel =rs.getString("nome");
                             tela.FuncionarioNivelLabel = rs.getString("nivel_acesso");
+                            tela.funcionarioCargo = rs.getString("cargo");
                             tela.setVisible(true);
                             break;
-                      case "SIMPLES":
-                            JOptionPane.showMessageDialog(null, "Bem Vindo SIMPLES a VENDAS&ESTOQUE");
+                      case "Funcionario":
+                            JOptionPane.showMessageDialog(null, "Bem Vindo "+ nome+", nivel de acesso SIMPLES tenha uma bom trabalho!");
                             MenuForm tela2 = new MenuForm();
+                            tela2.funcionarioLogadoLabel =rs.getString("nome");
+                            tela2.FuncionarioNivelLabel = rs.getString("nivel_acesso");
+                            tela2.funcionarioCargo = rs.getString("cargo");
                             tela2.setVisible(true);
                           break;
                           
