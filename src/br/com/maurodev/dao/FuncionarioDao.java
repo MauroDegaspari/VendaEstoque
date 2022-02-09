@@ -11,6 +11,8 @@ import br.com.maurodev.view.MenuForm;
 import br.com.maurodev.webservices.WebServiceCep;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.util.ArrayList;
+import java.util.List;
 import javax.swing.JOptionPane;
 
 /**
@@ -65,6 +67,42 @@ public class FuncionarioDao {
             JOptionPane.showMessageDialog(null, "ORA - Erro de Acesso ao banco, consulte o Desenvolvedo");
         }
     }
+    
+    
+     //metodo de Listar todos os Funcionarios
+    public List<FuncionarioModel> listarFuncionarios(){
+        try {
+               //1 criar lista de arrys de funcionarios
+               List<FuncionarioModel> lista = new ArrayList<>();
+               
+               //2 consulta em banco
+               String sql ="SELECT * FROM loja.tb_funcionarios";
+               
+               PreparedStatement ps = con.prepareStatement(sql);
+               
+                ResultSet rs = ps.executeQuery();
+        
+                while(rs.next()){
+
+                    FuncionarioModel func = new FuncionarioModel();
+                    
+                    func.setId(rs.getInt("id"));
+                    func.setNome(rs.getString("nome"));
+                    func.setCargo(rs.getString("cargo"));
+                    func.setCargo(rs.getString("cargo"));
+               
+                    lista.add(func);
+                }
+                           
+                       
+               return lista;
+        } catch (Exception e) {
+             return null;
+        }
+     
+        
+         
+    } 
     
      // metodo achar Funcionario LOGIN
     public FuncionarioModel loginFuncionario(String email, String senha){
