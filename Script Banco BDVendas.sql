@@ -67,7 +67,10 @@ CREATE TABLE loja.tb_funcionarios (
   complemento varchar (200),
   bairro varchar (100),
   cidade varchar (100),
-  estado varchar (2)
+  estado varchar (2),
+  salario float,
+  data_venda date
+
 );
 /*****************/
 

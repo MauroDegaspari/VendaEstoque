@@ -90,6 +90,8 @@ public class FuncionarioDao {
                     func.setNome(rs.getString("nome"));
                     func.setCargo(rs.getString("cargo"));
                     func.setNivel(rs.getString("nivel_acesso"));
+                    func.setRg(rs.getString("rg"));
+                    func.setCpf(rs.getString("cpf"));
                
                     lista.add(func);
                 }

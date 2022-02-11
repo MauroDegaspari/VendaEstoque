@@ -326,6 +326,8 @@ public class ProdutoForm extends javax.swing.JFrame {
         FornecedorDao daoForncedor = new FornecedorDao();
         
         List<FornecedorModel> listaFornecedor = daoForncedor.listarFornecedor();
+        
+        //evitar duplicata
         jComboBox2.removeAll();
         
         for(FornecedorModel f: listaFornecedor){

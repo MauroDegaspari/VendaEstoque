@@ -743,6 +743,9 @@ public class FuncionarioForm extends javax.swing.JFrame {
 
     private void TbfuncionarioMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_TbfuncionarioMouseClicked
         // Quando cliencar em algum funcionario
+              
+        FuncionarioDao dao = new FuncionarioDao();
+        List<FuncionarioModel> listFunc = dao.listarFuncionarios();
         
          //esse comdando manda para outra aba
         jTabbedPane1.setSelectedIndex(0);
@@ -750,7 +753,14 @@ public class FuncionarioForm extends javax.swing.JFrame {
          //depois são carregados os dados em seus respectivos campos
          txtCodigo.setText(Tbfuncionario.getValueAt(Tbfuncionario.getSelectedRow(), 0).toString());
          txtNome.setText(Tbfuncionario.getValueAt(Tbfuncionario.getSelectedRow(), 1).toString());
+         txtCargo.setText(Tbfuncionario.getValueAt(Tbfuncionario.getSelectedRow(), 2).toString());
          CbNivel.setSelectedItem(Tbfuncionario.getValueAt(Tbfuncionario.getSelectedRow(), 3).toString());
+         
+         for(FuncionarioModel f: listFunc){
+            txtRg.setText(f.getRg());
+            txtCPF.setText(f.getCpf());
+        }
+         
     }//GEN-LAST:event_TbfuncionarioMouseClicked
 
     /**
