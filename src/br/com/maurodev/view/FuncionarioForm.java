@@ -8,7 +8,9 @@ import br.com.maurodev.dao.FuncionarioDao;
 import br.com.maurodev.model.FuncionarioModel;
 import br.com.maurodev.utilities.Utilitarios;
 import java.awt.event.KeyEvent;
+import java.util.List;
 import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -16,6 +18,27 @@ import javax.swing.JOptionPane;
  */
 public class FuncionarioForm extends javax.swing.JFrame {
 
+    public void listaDeFuncionarios(){
+        
+        FuncionarioDao dao = new FuncionarioDao();
+        
+        List<FuncionarioModel> lista = dao.listarFuncionarios();
+        
+         DefaultTableModel dados = (DefaultTableModel) Tbfuncionario.getModel();
+
+        dados.setNumRows(0);
+
+        for (FuncionarioModel f : lista) {
+             dados.addRow(new Object[]{
+                 f.getId(),
+                 f.getNome(),
+                 f.getCargo(),
+                 f.getNivel()
+             });
+        }
+    }
+    
+    
     /**
      * Creates new form FuncionarioForm
      */
@@ -79,12 +102,17 @@ public class FuncionarioForm extends javax.swing.JFrame {
         jPanel2 = new javax.swing.JPanel();
         jPanel3 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        Tbfuncionario = new javax.swing.JTable();
 
         jPasswordField1.setText("jPasswordField1");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Cadastro de Funcionários");
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowActivated(java.awt.event.WindowEvent evt) {
+                formWindowActivated(evt);
+            }
+        });
 
         jPanel1.setBackground(new java.awt.Color(0, 102, 255));
 
@@ -503,24 +531,29 @@ public class FuncionarioForm extends javax.swing.JFrame {
 
         jTabbedPane1.addTab("Dados interno", jPanel2);
 
-        jTable1.setFont(new java.awt.Font("Verdana", 0, 11)); // NOI18N
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        Tbfuncionario.setFont(new java.awt.Font("Verdana", 0, 11)); // NOI18N
+        Tbfuncionario.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
             new String [] {
-                "Código", "Funcionário", "Cargo", "Salário", "Data Admissão"
+                "Código", "Funcionário", "Cargo", "Nivel_sistema", "Salário", "Data Admissão"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, false, false, false, true
+                false, false, false, true, false, true
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
                 return canEdit [columnIndex];
             }
         });
-        jScrollPane1.setViewportView(jTable1);
+        Tbfuncionario.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                TbfuncionarioMouseClicked(evt);
+            }
+        });
+        jScrollPane1.setViewportView(Tbfuncionario);
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
@@ -704,6 +737,22 @@ public class FuncionarioForm extends javax.swing.JFrame {
         new Utilitarios().LimparTela(JPCadastro);
     }//GEN-LAST:event_btnNovoFuncionarioActionPerformed
 
+    private void formWindowActivated(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowActivated
+        listaDeFuncionarios();
+    }//GEN-LAST:event_formWindowActivated
+
+    private void TbfuncionarioMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_TbfuncionarioMouseClicked
+        // Quando cliencar em algum funcionario
+        
+         //esse comdando manda para outra aba
+        jTabbedPane1.setSelectedIndex(0);
+        
+         //depois são carregados os dados em seus respectivos campos
+         txtCodigo.setText(Tbfuncionario.getValueAt(Tbfuncionario.getSelectedRow(), 0).toString());
+         txtNome.setText(Tbfuncionario.getValueAt(Tbfuncionario.getSelectedRow(), 1).toString());
+         CbNivel.setSelectedItem(Tbfuncionario.getValueAt(Tbfuncionario.getSelectedRow(), 3).toString());
+    }//GEN-LAST:event_TbfuncionarioMouseClicked
+
     /**
      * @param args the command line arguments
      */
@@ -742,6 +791,7 @@ public class FuncionarioForm extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JComboBox<String> CbNivel;
     private javax.swing.JPanel JPCadastro;
+    private javax.swing.JTable Tbfuncionario;
     private javax.swing.JButton btnEditar;
     private javax.swing.JButton btnExcluir;
     private javax.swing.JButton btnNovoFuncionario;
@@ -772,7 +822,6 @@ public class FuncionarioForm extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JTabbedPane jTabbedPane1;
-    private javax.swing.JTable jTable1;
     private javax.swing.JTextField txtBairro;
     private javax.swing.JFormattedTextField txtCEP;
     private javax.swing.JFormattedTextField txtCPF;

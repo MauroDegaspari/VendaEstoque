@@ -89,15 +89,16 @@ public class FuncionarioDao {
                     func.setId(rs.getInt("id"));
                     func.setNome(rs.getString("nome"));
                     func.setCargo(rs.getString("cargo"));
-                    func.setCargo(rs.getString("cargo"));
+                    func.setNivel(rs.getString("nivel_acesso"));
                
                     lista.add(func);
                 }
-                           
+                         
                        
                return lista;
         } catch (Exception e) {
-             return null;
+            JOptionPane.showMessageDialog(null, "Erro ao carregar Lista "+ e);
+            return null;
         }
      
         

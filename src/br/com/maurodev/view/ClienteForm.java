@@ -624,7 +624,7 @@ public class ClienteForm extends javax.swing.JFrame {
     }//GEN-LAST:event_btnExcluirActionPerformed
 
     private void btnEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditarActionPerformed
-        // TODO add your handling code here:
+        // Botão Editar
         ClienteModel cliente = new ClienteModel();
 
         cliente.setNome(txtNome.getText());
@@ -679,9 +679,7 @@ public class ClienteForm extends javax.swing.JFrame {
 
     private void BtnNovoClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnNovoClienteActionPerformed
         ClienteModel cliente = new ClienteModel();
-        
-        //String sql ="select "
-        
+                   
         new Utilitarios().LimparTela(JPCadastro);
     }//GEN-LAST:event_BtnNovoClienteActionPerformed
 
@@ -816,7 +814,9 @@ public class ClienteForm extends javax.swing.JFrame {
         // Pegar os dados:
 
         //esse comdando manda para outra aba
-        jTabbedPane1.setSelectedIndex(1);
+        jTabbedPane1.setSelectedIndex(0);
+        
+        //depois são carregados os dados em seus respectivos campos
         txtCodigo.setText(ListaCliente.getValueAt(ListaCliente.getSelectedRow(), 0).toString());
         txtNome.setText(ListaCliente.getValueAt(ListaCliente.getSelectedRow(), 1).toString());
         txtRg.setText(ListaCliente.getValueAt(ListaCliente.getSelectedRow(), 2).toString());
