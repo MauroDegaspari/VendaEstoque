@@ -756,10 +756,21 @@ public class FuncionarioForm extends javax.swing.JFrame {
          txtCargo.setText(Tbfuncionario.getValueAt(Tbfuncionario.getSelectedRow(), 2).toString());
          CbNivel.setSelectedItem(Tbfuncionario.getValueAt(Tbfuncionario.getSelectedRow(), 3).toString());
          
+        // int codigo = txtCo
          for(FuncionarioModel f: listFunc){
             txtRg.setText(f.getRg());
             txtCPF.setText(f.getCpf());
-        }
+            txtEmail.setText(f.getEmail());
+            txtCelular.setText(f.getCelular());
+            txtTelefone.setText(f.getTel());
+            txtEndereco.setText(f.getEndereco());
+            txtNumero.setText(String.valueOf(f.getNumero()));
+            txtCidade.setText(f.getCidade());
+            cbUF.setSelectedItem(f.getUf());
+            txtBairro.setText(f.getBairro());
+            txtCEP.setText(f.getCep());
+            txtComplemento.setText(f.getComplemento());
+         }
          
     }//GEN-LAST:event_TbfuncionarioMouseClicked
 

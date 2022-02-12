@@ -92,6 +92,18 @@ public class FuncionarioDao {
                     func.setNivel(rs.getString("nivel_acesso"));
                     func.setRg(rs.getString("rg"));
                     func.setCpf(rs.getString("cpf"));
+                    func.setSenha(rs.getString("senha"));
+                    func.setEmail(rs.getString("email"));
+                    func.setCelular(rs.getString("celular"));
+                    func.setTel(rs.getString("telefone"));
+                    func.setEndereco(rs.getString("endereco"));
+                    func.setNumero(rs.getInt("numero"));
+                    func.setCidade(rs.getString("cidade"));
+                    func.setUf(rs.getString("estado"));
+                    func.setBairro(rs.getString("bairro"));
+                    func.setCep(rs.getString("cep"));
+                    func.setComplemento(rs.getString("complemento"));
+                    
                
                     lista.add(func);
                 }
