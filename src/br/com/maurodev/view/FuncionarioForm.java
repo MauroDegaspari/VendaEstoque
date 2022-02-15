@@ -725,7 +725,9 @@ public class FuncionarioForm extends javax.swing.JFrame {
         new Utilitarios().LimparTela(JPCadastro);
         
         } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, "Erro no metodo btnSalvarActionPerformed ");
+           // String title = "TEste";
+            //JOptionPane.showConfirmDialog(null,"teste opçoes",title, WIDTH);
+           JOptionPane.showMessageDialog(null, "Erro no metodo btnSalvarActionPerformed ");
         }
            
 
@@ -742,10 +744,9 @@ public class FuncionarioForm extends javax.swing.JFrame {
     }//GEN-LAST:event_formWindowActivated
 
     private void TbfuncionarioMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_TbfuncionarioMouseClicked
-        // Quando cliencar em algum funcionario
+        // Quando clicar em algum funcionario
               
-        FuncionarioDao dao = new FuncionarioDao();
-        List<FuncionarioModel> listFunc = dao.listarFuncionarios();
+        
         
          //esse comdando manda para outra aba
         jTabbedPane1.setSelectedIndex(0);
@@ -755,8 +756,13 @@ public class FuncionarioForm extends javax.swing.JFrame {
          txtNome.setText(Tbfuncionario.getValueAt(Tbfuncionario.getSelectedRow(), 1).toString());
          txtCargo.setText(Tbfuncionario.getValueAt(Tbfuncionario.getSelectedRow(), 2).toString());
          CbNivel.setSelectedItem(Tbfuncionario.getValueAt(Tbfuncionario.getSelectedRow(), 3).toString());
+        
+        
+        int codigo = Integer.parseInt(txtCodigo.getText());
          
-        // int codigo = txtCo
+        FuncionarioDao dao = new FuncionarioDao();
+        List<FuncionarioModel> listFunc = dao.idFuncionario(codigo);
+        
          for(FuncionarioModel f: listFunc){
             txtRg.setText(f.getRg());
             txtCPF.setText(f.getCpf());

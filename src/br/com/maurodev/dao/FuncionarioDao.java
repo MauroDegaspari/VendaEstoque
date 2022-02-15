@@ -113,11 +113,63 @@ public class FuncionarioDao {
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, "Erro ao carregar Lista "+ e);
             return null;
-        }
-     
+        }  
         
          
     } 
+    
+    
+    public List<FuncionarioModel> idFuncionario(int id){
+        try {
+            
+            // lista do funcionario
+            List<FuncionarioModel> lista = new ArrayList<>();
+            
+            // consulta banco
+            String sql ="SELECT * "
+                      + "FROM loja.tb_funcionarios "
+                      + "WHERE id = ?";
+            
+            //preparando conexao
+            PreparedStatement ps = con.prepareStatement(sql);
+            
+            ps.setInt(1, id);
+            
+            //Objeto
+            ResultSet rs = ps.executeQuery();
+            
+                //(.next) se ele conseguir percorre
+                while(rs.next()){
+                  FuncionarioModel func = new FuncionarioModel();
+                  
+                    func.setId(rs.getInt("id"));
+                    //func.setNome(rs.getString("nome"));
+                    func.setRg(rs.getString("rg"));
+                    func.setCpf(rs.getString("cpf"));
+                    func.setEmail(rs.getString("email"));
+                    func.setTel(rs.getString("telefone"));
+                    func.setCelular(rs.getString("Celular"));
+                    func.setCep(rs.getString("cep"));
+                    func.setEndereco(rs.getString("endereco"));
+                    func.setNumero(rs.getInt("numero"));
+                    func.setComplemento(rs.getString("complemento"));
+                    func.setBairro(rs.getString("bairro"));
+                    func.setCidade(rs.getString("Cidade"));            
+                    func.setEstado(rs.getString("estado"));
+                    
+                    lista.add(func);
+                    
+                    
+                }
+                
+                return lista;
+
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null,"Erro na consulta de IdFuncionario "+ e);
+            return null;
+        }
+           
+    }
     
      // metodo achar Funcionario LOGIN
     public FuncionarioModel loginFuncionario(String email, String senha){
